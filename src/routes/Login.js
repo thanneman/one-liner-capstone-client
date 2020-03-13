@@ -4,7 +4,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
 import { Link } from 'react-router-dom'
-import logo from '../images/logo.png'
+//import logo from '../images/logo.png'
 import Footer from '../components/Footer'
 
 export default class Login extends Component {
@@ -64,7 +64,8 @@ export default class Login extends Component {
                 <main role="main" className="login-container">
                     <header role="banner">
                         <div className="login-logo">
-                            <img id="login-logo" src={logo} alt="DiscScore Logo" />
+                            Logo
+                            {/* <img id="login-logo" src={logo} alt="Logo" /> */}
                         </div>
                     </header>
                     <div className="login">

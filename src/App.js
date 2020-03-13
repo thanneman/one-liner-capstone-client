@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import PrivateRoute from './components/utils/PrivateRoute'
 //import PublicOnlyRoute from './components/utils/PublicOnlyRoute'
+import Landing from './routes/Landing'
 import Login from './routes/Login'
 import Signup from './routes/Signup'
 import Dashboard from './routes/Dashboard'
+import NewJoke from './routes/NewJoke'
 //import './App.css'
 
 export default class App extends Component {

@@ -3,7 +3,7 @@ import ValidationError from '../components/validation-error'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import { Link } from 'react-router-dom'
-import logo from '../images/logo.png'
+//import logo from '../images/logo.png'
 import Footer from '../components/Footer'
 
 
@@ -103,7 +103,7 @@ export default class Signup extends Component {
     }
 
     validateUsername(fieldValue) {
-        const email = this.state.username.value.trim();
+        const username = this.state.username.value.trim();
         if (username.length === 0 ) {
             return 'Username is required';
         } else if (username.length < 4) {
@@ -136,7 +136,8 @@ export default class Signup extends Component {
                 <main role="main" className="login-container">
                     <header role="banner">
                         <div className="login-logo">
-                            <img id="login-logo" src={logo} alt="Logo" />
+                            Logo
+                            {/* <img id="login-logo" src={logo} alt="Logo" /> */}
                         </div>
                     </header>
                     <div className="login">
