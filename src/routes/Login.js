@@ -62,12 +62,6 @@ export default class Login extends Component {
         return (
             <>
                 <main role="main" className="login-container">
-                    <header role="banner">
-                        <div className="login-logo">
-                            Logo
-                            {/* <img id="login-logo" src={logo} alt="Logo" /> */}
-                        </div>
-                    </header>
                     <div className="login">
                         <h3>Login</h3>
                         <form className='signup-form' onSubmit={this.handleSubmitJwtAuth}>

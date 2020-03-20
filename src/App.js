@@ -7,7 +7,7 @@ import Login from './routes/Login'
 import Signup from './routes/Signup'
 import Dashboard from './routes/Dashboard'
 import NewJoke from './routes/NewJoke'
-//import './App.css'
+import './App.css'
 
 export default class App extends Component {
     
