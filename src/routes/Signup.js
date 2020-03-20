@@ -3,7 +3,6 @@ import ValidationError from '../components/validation-error'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import { Link } from 'react-router-dom'
-//import logo from '../images/logo.png'
 import Footer from '../components/Footer'
 
 
@@ -40,7 +39,6 @@ export default class Signup extends Component {
 
 
     // Update state if input updated
-    
     updateEmail(email) {
         this.setState({ email: { value: email, touched: true } });
     }

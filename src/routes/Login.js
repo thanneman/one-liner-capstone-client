@@ -4,7 +4,6 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
 import { Link } from 'react-router-dom'
-//import logo from '../images/logo.png'
 import Footer from '../components/Footer'
 
 export default class Login extends Component {
