@@ -233,6 +233,7 @@
     min-height: 300px;
     margin: 20px auto;
     border-radius: 8px;
+    padding: 5px;
   }
   
   .detail-label {
@@ -288,3 +289,23 @@
     background-color: #9d9d9d;
     cursor: not-allowed;
   }
+
+
+  /*iPhone portrait*/
+@media only screen and (min-width: 320px) {
+    .top-joke {
+        width: 95%;
+    }
+
+    .login-container {
+        width: 95%;
+    }
+
+    .joke-card-lg {
+        width: 100%;
+    }
+
+    .new-joke-form input, .new-joke-form textarea {
+        width: 95%;
+    }
+}
