@@ -23,6 +23,7 @@ export default class Login extends Component {
     }
 
     // Check that the users credentials are valid
+    /*
     handleSubmitJwtAuth = ev => {
         ev.preventDefault()
         this.setState({ error: null, loading: true })
@@ -43,7 +44,7 @@ export default class Login extends Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
-    }
+    }*/
 
     render() {
         // Display loader if the request is taking too long

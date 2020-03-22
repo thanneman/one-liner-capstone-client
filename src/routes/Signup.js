@@ -61,6 +61,7 @@ export default class Signup extends Component {
 
 
     // When submitted check validation and create tokens
+    /*
     handleSubmitBasicAuth = ev => {
         ev.preventDefault()
         const { email, username, password, repeatPassword} = ev.target
@@ -83,7 +84,7 @@ export default class Signup extends Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
-    }
+    }*/
 
 
 
@@ -164,7 +165,7 @@ export default class Signup extends Component {
                             {this.state.error && (<ValidationError message={this.state.error} />)}
                         </div>
                         <div>
-                            <p>Already have an account? <Link to="/">Login here</Link></p>
+                            <p>Already have an account? <Link to="/login">Login here</Link></p>
                         </div>
                     </div>
                 </main>

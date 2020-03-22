@@ -19,8 +19,8 @@ export default class App extends Component {
               <Route exact path={'/'} component={Landing} />
               <Route path={'/login'} component={Login} />
               <Route path={'/signup'} component={Signup} />
-              <PrivateRoute path={'/dashboard'} component={Dashboard} />
-              <PrivateRoute path={'/newjoke'} component={NewJoke} />
+              <Route path={'/dashboard'} component={Dashboard} />
+              <Route path={'/newjoke'} component={NewJoke} />
             </Switch>
         </div>
       )

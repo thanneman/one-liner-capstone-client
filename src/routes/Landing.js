@@ -35,7 +35,7 @@ export default class Landing extends Component {
                     </header>
                     <div className="site-access">
                         <p>
-                            <Link to="/login">Login</Link> | <Link to="/signup">Sign Up</Link>
+                            <Link to="/dashboard">Login</Link> | <Link to="/signup">Sign Up</Link>
                         </p>
                     </div>
                     <div className="top-joke">

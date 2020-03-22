@@ -184,3 +184,107 @@
     margin: 0 auto;
     font-weight: 400;
   }
+
+  .joke-list {
+    width: 90%;
+    margin: 0px auto;
+    padding: 0;
+  }
+  
+  .joke-card {
+    width: 100%;
+    margin: 2% auto;
+    background-color: #bbb;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .joke-card-title {
+    width: 100%;
+  }
+  
+  .joke-card-title h4 {
+    margin: 0px;
+  }
+  
+  .joke-card-info {
+    width: 100%;
+  }
+
+  .joke-card-vote {
+    width: 100%;
+  }
+
+  .add-joke {
+  width: 50%;
+  margin: 2% auto;
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.joke-card-lg {
+    display: block;
+    width: 50%;
+    color: #444444;
+    background-color: #ededed;
+    min-height: 300px;
+    margin: 20px auto;
+    border-radius: 8px;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+  }
+  .new-joke-form {
+    text-align: center;
+  }
+  
+  .new-joke-form input, .new-joke-form textarea {
+    display: block;
+    appearance: none;
+    outline: 0;
+    border: 1px solid #d3d3d3;
+    background-color: #ffffff;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    transition-duration: 0.25s;
+    font-weight: 300;
+  }
+  
+  .new-joke-form input:hover {
+    background-color: #ffffff;
+  }
+  
+  .new-joke-form input:focus {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .joke-card-info button {
+    background-color: #d3d3d3;
+    padding: 10px 15px;
+    color: #444444 !important;
+    border-radius: 5px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25;
+    margin-top: 10px;
+  }
+  
+  .joke-card-info button:hover {
+    background-color: #b8b8b8;
+  }
+  
+  .joke-card-info button:disabled {
+    background-color: #9d9d9d;
+    cursor: not-allowed;
+  }
