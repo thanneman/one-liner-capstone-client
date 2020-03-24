@@ -2,6 +2,22 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const JokeApiService = {
+  // GET all jokes
+  getAllJokes() {
+    return fetch(`${config.API_ENDPOINT}/jokes`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+            .catch(error => {
+        console.error(error)
+      })
+  },
   // GET all jokes for logged in user
   getUserJokes() {
     return fetch(`${config.API_ENDPOINT}/users/${TokenService.getUserId('user_id')}/jokes`, {

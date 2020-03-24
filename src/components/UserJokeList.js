@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import MainContext from '../MainContext'
-import Joke from '../components/Joke'
+import UserJoke from '../components/UserJoke'
 
-export default class JokeList extends Component {
+export default class UserJokeList extends Component {
     state = {
         jokes: [],
         id: '',
@@ -15,12 +15,6 @@ export default class JokeList extends Component {
     setError = error => {
         //console.error(error)
         this.setState({ error: true })
-    }
-
-    addJoke = joke => {
-        this.setState({
-            jokes: [...this.state.jokes, joke],
-        })
     }
 
     deleteJoke = jokeId => {
@@ -39,15 +33,13 @@ export default class JokeList extends Component {
             question: this.state.question,
             answer: this.state.answer,
             rating: this.state.rating,
-            addJoke: this.addJoke,
             deleteJoke: this.deleteJoke,
-            //addUser: this.addUser,
         }
 
         return (
             <MainContext.Provider value={contextValue}>
                 <section className="joke-list">
-                    <Joke />
+                    <UserJoke />
                 </section>
             </MainContext.Provider>
         )

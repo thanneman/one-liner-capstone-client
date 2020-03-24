@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import AddJoke from '../components/AddJoke'
+import UserJokeList from '../components/UserJokeList'
 
 
-export default class NewJoke extends Component {
+export default class UserJokes extends Component {
 
 
     render() {
@@ -12,7 +12,7 @@ export default class NewJoke extends Component {
             <>
                 <main role="main">
                     <NavBar />
-                    <AddJoke />
+                    <UserJokeList />
                 </main>
                 <Footer />
             </>

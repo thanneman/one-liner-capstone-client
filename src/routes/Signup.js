@@ -55,13 +55,12 @@ export default class Signup extends Component {
         this.setState({ repeatPassword: { value: repeatPassword, touched: true } });
     }
 
-    handleLoginSuccess = user => {
+    handleLoginSuccess = () => {
         window.location = '/dashboard'
     }
 
 
     // When submitted check validation and create tokens
-    /*
     handleSubmitBasicAuth = ev => {
         ev.preventDefault()
         const { email, username, password, repeatPassword} = ev.target
@@ -79,18 +78,19 @@ export default class Signup extends Component {
                 TokenService.saveAuthToken(user.authToken)
                 TokenService.saveUserId(user.userId)
                 alert('User created')
-                window.location = '/'
+                window.location = '/dashboard'
             })
+            .then()
             .catch(res => {
                 this.setState({ error: res.error })
             })
-    }*/
+    }
 
 
 
     // Validate inputs
 
-    validateEmail(fieldValue) {
+    validateEmail() {
         const email = this.state.email.value.trim();
         if (email.length === 0 ) {
             return 'Email is required';
@@ -101,7 +101,7 @@ export default class Signup extends Component {
         }
     }
 
-    validateUsername(fieldValue) {
+    validateUsername() {
         const username = this.state.username.value.trim();
         if (username.length === 0 ) {
             return 'Username is required';

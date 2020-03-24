@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import TokenService from '../services/token-service'
 import { NavLink } from 'react-router-dom'
 //import logo from '../images/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle, faSignOutAlt, faListAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default class NavBar extends Component {
 
@@ -15,8 +17,9 @@ export default class NavBar extends Component {
             <nav role="navigation">
                 <div className="logo"><NavLink to="/dashboard">One-Liner</NavLink></div>
                 <ul>
-                    <li><NavLink to="/newjoke">New Joke</NavLink></li>
-                    <li><NavLink to="/" onClick={this.handleLogout}>Logout</NavLink></li>
+                    <li><NavLink to="/newjoke"><FontAwesomeIcon icon={faPlusCircle} size="lg" /> New Joke</NavLink></li>
+                    <li><NavLink to="/myjokes"><FontAwesomeIcon icon={faListAlt} size="lg" /> My Jokes</NavLink></li>
+                    <li><NavLink to="/" onClick={this.handleLogout}><FontAwesomeIcon icon={faSignOutAlt} size="lg" /> Logout</NavLink></li>
                 </ul>
             </nav>
         )

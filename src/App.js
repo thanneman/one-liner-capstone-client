@@ -7,6 +7,7 @@ import Login from './routes/Login'
 import Signup from './routes/Signup'
 import Dashboard from './routes/Dashboard'
 import NewJoke from './routes/NewJoke'
+import UserJokes from './routes/UserJokes'
 import './App.css'
 
 export default class App extends Component {
@@ -19,8 +20,9 @@ export default class App extends Component {
               <Route exact path={'/'} component={Landing} />
               <Route path={'/login'} component={Login} />
               <Route path={'/signup'} component={Signup} />
-              <Route path={'/dashboard'} component={Dashboard} />
-              <Route path={'/newjoke'} component={NewJoke} />
+              <PrivateRoute path={'/dashboard'} component={Dashboard} />
+              <PrivateRoute path={'/newjoke'} component={NewJoke} />
+              <PrivateRoute path={'/myjokes'} component={UserJokes} />
             </Switch>
         </div>
       )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import JokeApiService from '../services/joke-api-service'
+import JokeApiService from '../services/joke-api-service'
 import ValidationError from './validation-error'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -39,7 +39,6 @@ export default class AddJoke extends Component {
         this.setState({ answer: { value: answer, touched: true } });
     }
 
-    /*
     // Handle submit to POST new joke for logged in user
     handleSubmit = e => {
         e.preventDefault()
@@ -48,12 +47,12 @@ export default class AddJoke extends Component {
             question: e.target.question.value,
             answer: e.target.answer.value,
         }
-        JokeApiService.postUserJoke(newJoke.id, newJoke.question, newJoke.answer)
+        JokeApiService.postUserJoke(newJoke.id, newJoke.question, newJoke.answer, newJoke.rating)
             .then(() => {
                 window.location = '/dashboard'
             })
             .catch(this.state.error)
-    }*/
+    }
 
     // Validates that a question has been entered
     validateQuestion() {

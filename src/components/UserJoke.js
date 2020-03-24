@@ -8,7 +8,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 
-export default class Joke extends Component {
+export default class UserJoke extends Component {
     static contextType = MainContext;
     // Set initial state for user before fetch
     state = {
@@ -29,7 +29,7 @@ export default class Joke extends Component {
 
     // Fetches jokes and updates state when the component mounts
     componentDidMount() {
-        JokeApiService.getAllJokes()
+        JokeApiService.getUserJokes()
             .then(resJson =>
                 this.setState({
                     jokes: resJson
@@ -65,7 +65,7 @@ export default class Joke extends Component {
                         <h4><span className="detail-label">A: </span>{joke.answer}</h4>
                     </div>
                     <div className="joke-card-vote">
-                    <p>{joke.username} | Votes: {joke.rating} | <span role="img" aria-label="Thumbs up">👍</span>  <span role="img" aria-label="Thumbs down">👎</span></p>
+                    <p>Votes: {joke.rating} | <span role="img" aria-label="Thumbs up">👍</span>  <span role="img" aria-label="Thumbs down">👎</span></p>
                     </div>
                     <button id={joke.id} type='submit' onClick={this.handleDelete}>Delete <FontAwesomeIcon icon={faTrashAlt} size="lg" /></button>
                 </div>
