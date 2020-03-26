@@ -3,6 +3,7 @@ import ValidationError from './validation-error'
 import MainContext from '../MainContext'
 import JokeApiService from '../services/joke-api-service'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
@@ -51,8 +52,8 @@ export default class UserJoke extends Component {
         // If the user has no jokes display a prompt to add a joke
         if (this.state.jokes.length === 0) {
             return <div className="no-jokes">
-                        You haven't entered any jokes yet. Please enter a new joke!
-                        <NavLink className='no-joke-btn' to="/newjoke"><FontAwesomeIcon icon={faPlusCircle} size="lg" /> Start New Joke</NavLink>
+                        You don't have any jokes. Please enter a new joke!
+                        <NavLink className='no-joke-btn' to="/newjoke"><FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add a Joke</NavLink>
                     </div>
         }
         return (
@@ -61,13 +62,13 @@ export default class UserJoke extends Component {
                 {this.state.jokes.map(joke => (
                 <div className="joke-card" key={joke.id} id={joke.id}>
                     <div className="joke-card-title">
+                        <div className="joke-card-vote">
+                            <p>Posted on {moment(joke.date).format("MMMM D, YYYY")} | Votes: {joke.rating}</p>
+                        </div>
                         <h4><span className="detail-label">Q: </span>{joke.question}</h4>
                         <h4><span className="detail-label">A: </span>{joke.answer}</h4>
+                        <button id={joke.id} type='submit' onClick={this.handleDelete}><FontAwesomeIcon icon={faTrashAlt} size="lg" /> Delete</button>
                     </div>
-                    <div className="joke-card-vote">
-                    <p>Votes: {joke.rating} | <span role="img" aria-label="Thumbs up">👍</span>  <span role="img" aria-label="Thumbs down">👎</span></p>
-                    </div>
-                    <button id={joke.id} type='submit' onClick={this.handleDelete}>Delete <FontAwesomeIcon icon={faTrashAlt} size="lg" /></button>
                 </div>
                 ))}
             </>

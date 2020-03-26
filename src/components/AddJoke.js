@@ -47,6 +47,7 @@ export default class AddJoke extends Component {
             question: e.target.question.value,
             answer: e.target.answer.value,
         }
+        console.log(newJoke)
         JokeApiService.postUserJoke(newJoke.id, newJoke.question, newJoke.answer, newJoke.rating)
             .then(() => {
                 window.location = '/dashboard'

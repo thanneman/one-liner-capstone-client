@@ -85,9 +85,10 @@
   .top-joke {
     width: 50%;
     margin: 0px auto;
-    padding: 1px;
+    padding-top: 5px;
     border-radius: 5px;
     background-color: #f0f0f0;
+    min-height: 120px;
   }
   
   .login-container {
@@ -185,6 +186,11 @@
     font-weight: 400;
   }
 
+  .no-joke-btn {
+    display: block;
+    margin: 10px auto 0 auto;
+  }
+
   .joke-list {
     width: 90%;
     margin: 0px auto;
@@ -215,6 +221,12 @@
 
   .joke-card-vote {
     width: 100%;
+    font-size: 14px;
+  }
+
+  .joke-card-vote p {
+    font-size: 14px;
+    margin: 5px;
   }
 
   .add-joke {
@@ -243,7 +255,7 @@
     text-align: center;
   }
   
-  .new-joke-form input, .new-joke-form textarea {
+  .new-joke-form input, .new-joke-form select {
     display: block;
     appearance: none;
     outline: 0;
@@ -288,6 +300,23 @@
   .joke-card-info button:disabled {
     background-color: #9d9d9d;
     cursor: not-allowed;
+  }
+
+  .joke-card button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    color: #444444;
+    background-color: #9d9d9d;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    transition-duration: 0.25;
+  }
+  
+  .joke-card button:hover {
+    color: #ffffff;
+    background-color: #5a5a5a;
   }
 
 

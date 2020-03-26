@@ -11,7 +11,7 @@ export default class LoadingSpinner extends Component {
          color="#000000"
          height={30}
          width={30}
-         timeout={4000} //5 secs
+         timeout={8000} //8 secs
 
       />
      );
