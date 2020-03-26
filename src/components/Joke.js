@@ -5,7 +5,7 @@ import JokeApiService from '../services/joke-api-service'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt, faPlusCircle, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faArrowUp, } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Joke extends Component {
