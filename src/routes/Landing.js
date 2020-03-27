@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 
 
 export default class Landing extends Component {
-    /*
     static contextType = MainContext;
     // Set initial state for user before fetch
     state = {
@@ -28,10 +27,9 @@ export default class Landing extends Component {
                 .catch(res => {
                     this.setState({ error: res.error })
                 })
-    }*/
+    }
 
     render() {
-        /*
         // Display loader if the request is taking too long
         const { loading } = this.state;
         let loadedJoke;
@@ -44,7 +42,7 @@ export default class Landing extends Component {
                         <h4><span className="detail-label">A: </span>{this.state.joke.answer}</h4>
                         <p>Posted by: {this.state.joke.username}</p>
                         </>
-        }*/
+        }
         return (
             <>
                 <main role="main">
@@ -60,7 +58,8 @@ export default class Landing extends Component {
                     </div>
                         <div className="top-joke">
                             <div className="joke-card-title">
-                                <h4>Test</h4>
+                                {loader}
+                                {loadedJoke}
                             </div>
                         </div>
                 </main>

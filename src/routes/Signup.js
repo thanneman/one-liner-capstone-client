@@ -78,7 +78,7 @@ export default class Signup extends Component {
                 TokenService.saveAuthToken(user.authToken)
                 TokenService.saveUserId(user.userId)
                 alert('User created')
-                window.location = '/dashboard'
+                window.location = '/login'
             })
             .then()
             .catch(res => {
