@@ -7,7 +7,7 @@ One-liner is a comical community to post and rate the best jokes.
 
 [React Client Repo](https://github.com/thanneman/one-liner-capstone-client)
 
-[Live App](#) NEED TO ADD
+[Live App](https://one-liner-gray.now.sh/)
 
 ## User Stores
 This app has two types of users; visitor and logged-in user
@@ -41,30 +41,30 @@ This app has two types of users; visitor and logged-in user
 
 ### **Landing Page**
 #### GET `api/jokes`
-<img src="/github-images/screenshots/landing.png" alt="Landing Page">
+<img src="/github-images/landing.png" alt="Landing Page">
 
 ### **Login Page**
 #### POST `api/auth/login`
-<img src="/github-images/screenshots/login.png" alt="Landing Page">
+<img src="/github-images/login.png" alt="Landing Page">
 
 ### **Sign Up Page**
 #### POST `api/users`
-<img src="/github-images/screenshots/signup.png" alt="Sign Up Page">
+<img src="/github-images/signup.png" alt="Sign Up Page">
 
 ### **Dashboard (All Jokes)**
 #### GET `api/jokes`
 #### PATCH `api/upvote/jokes/:joke_id`
 #### PATCH `api/downvote/jokes/:joke_id`
-<img src="/github-images/screenshots/dashboard.png" alt="Dashboard Page">
+<img src="/github-images/dashboard.png" alt="Dashboard Page">
 
 ### **User Jokes**
 #### GET `api/users/:user_id/jokes`
 #### DELETE `api/user/:user_id/joke/:joke`
-<img src="/github-images/screenshots/userjokes.png" alt="User Jokes Page">
+<img src="/github-images/userjokes.png" alt="User Jokes Page">
 
 ### **Add New Joke**
 #### POST `api/users/:user_id/jokes`
-<img src="/github-images/screenshots/newjoke.png" alt="Add Joke Page">
+<img src="/github-images/newjoke.png" alt="Add Joke Page">
 
 ## API Documentation
 
