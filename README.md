@@ -1,68 +1,160 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# one-liner-capstone-client
 
-## Available Scripts
+One-liner is a comical community to post and rate the best jokes.
 
-In the project directory, you can run:
+## Working Prototype
+[Sever Repo](https://github.com/thanneman/one-liner-capstone-server)
 
-### `npm start`
+[React Client Repo](https://github.com/thanneman/one-liner-capstone-client)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Live App](#) NEED TO ADD
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## User Stores
+This app has two types of users; visitor and logged-in user
 
-### `npm test`
+#### Landing Page
+* As a visitor
+* I want to understand what the app is and what I can do with it
+* Sign up or log in
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Sign Up
+* As a visitor
+* I want to register to use this app
+* So I can add jokes and have the community rate them
 
-### `npm run build`
+#### View All Jokes
+* As a logged-in user
+* I want to see all jokes from the community
+* I want to to be able to upvote/downvote jokes
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### View My Jokes
+* As a logged-in user
+* I want to see only jokes
+* I want to be able to delete only my jokes
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### New Joke
+* As a logged-in user
+* I want to add a new joke
+* So I can have the cummunity rate my joke
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+### **Landing Page**
+#### GET `api/jokes`
+<img src="/github-images/screenshots/landing.png" alt="Landing Page">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **Login Page**
+#### POST `api/auth/login`
+<img src="/github-images/screenshots/login.png" alt="Landing Page">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Sign Up Page**
+#### POST `api/users`
+<img src="/github-images/screenshots/signup.png" alt="Sign Up Page">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### **Dashboard (All Jokes)**
+#### GET `api/jokes`
+#### PATCH `api/upvote/jokes/:joke_id`
+#### PATCH `api/downvote/jokes/:joke_id`
+<img src="/github-images/screenshots/dashboard.png" alt="Dashboard Page">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### **User Jokes**
+#### GET `api/users/:user_id/jokes`
+#### DELETE `api/user/:user_id/joke/:joke`
+<img src="/github-images/screenshots/userjokes.png" alt="User Jokes Page">
 
-## Learn More
+### **Add New Joke**
+#### POST `api/users/:user_id/jokes`
+<img src="/github-images/screenshots/newjoke.png" alt="Add Joke Page">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Documentation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Users Endpoints
+`/users/:user_id` endpoints require an `authorization` header with value of `bearer YOUR_AUTH_TOKEN_HERE` which is assigned to the user after signing up for an account.
 
-### Code Splitting
+### POST `api/users`
+Adds a new user to the user database and allows them to use their account to track the data they input. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### POST `api/auth/login`
+Allows a user in the database to login with the proper credentials. Returns the authToken and userId which allows them access to their information `/users/:user_id` endpoints as below.
 
-### Analyzing the Bundle Size
+### GET `api/users/:user_id/jokes`
+Allows a logged-in user to access all of their jokes they have entered by returning an array of the data.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**Example response**
+```JSON
+[
+    {
+        "id": 24,
+        "user_id": 5,
+        "username": "demouser",
+        "question": "Post Malone has canceled his tour.",
+        "answer": "Does this now make him Postpone Malone?",
+        "rating": 8,
+        "date": "2020-02-07 15:33:49",
+    }
+]
+```
 
-### Making a Progressive Web App
+### DELETE `api/users/:user_id/jokes/:joke_id`
+Allows a logged-in user to delete a joke using the `joke_id` of the corresponding joke.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+A successful `DELETE` responds with `204 No Content`.
 
-### Advanced Configuration
+### POST `api/users/:user_id/jokes`
+Allows a logged-in user to add a joke with their relevant data.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+**Example request body**
+```JSON
+[
+    {
+        "question": "Post Malone has canceled his tour.",
+        "answer": "Does this now make him Postpone Malone?",
+        "rating": 1,
+    }
+]
+```
+**Example response body**
+```JSON
+[
+    {
+        "id": 24,
+        "user_id": 5,
+        "username": "demouser",
+        "question": "Post Malone has canceled his tour.",
+        "answer": "Does this now make him Postpone Malone?",
+        "rating": 1,
+        "date": "2020-02-07 15:33:49",
+    }
+]
+```
 
-### Deployment
+## Business Objects (database structure)
+* User
+    * user id
+    * email
+    * username
+    * password (at least 7-20 char and a number)
+    * date created
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+* Jokes
+    * joke id
+    * user id
+    * question
+    * answer
+    * rating
+    * date
 
-### `npm run build` fails to minify
+## Technology
+* Front-End: HTML5, CSS3, JavaScript, React.js
+* Back-End: Node.js, Express.js, PostgreSQL, Mocha and Chai
+* Development Enviroment: ZEIT & Heroku
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Responsive
+App is built to be usable on mobile devices, as well as responsive across mobile, tablet, laptop, and desktop screen resolutions.
+
+## Scripts
+Install node modules `npm install`
+
+Run the tests `npm test`
+
+Start the application `npm start`
