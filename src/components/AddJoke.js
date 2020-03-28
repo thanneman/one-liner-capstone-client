@@ -48,7 +48,6 @@ export default class AddJoke extends Component {
             answer: e.target.answer.value,
             rating: e.target.rating.value,
         }
-        console.log(newJoke)
         JokeApiService.postUserJoke(newJoke.id, newJoke.question, newJoke.answer, newJoke.rating)
             .then(() => {
                 window.location = '/dashboard'
@@ -61,6 +60,8 @@ export default class AddJoke extends Component {
         const question = this.state.question.value.trim();
         if (question.length === 0 ) {
             return 'Please enter your joke';
+        } else if (question.length > 350) {
+            return 'Must be under 350 characters';
         }
     }
 
@@ -69,6 +70,8 @@ export default class AddJoke extends Component {
         const answer = this.state.answer.value.trim();
         if (answer.length === 0 ) {
             return 'Please enter an answer to your joke';
+        } else if (answer.length > 350) {
+            return 'Must be under 350 characters';
         }
     }
 

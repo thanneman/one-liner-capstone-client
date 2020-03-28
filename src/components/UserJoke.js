@@ -63,11 +63,11 @@ export default class UserJoke extends Component {
                 <div className="joke-card" key={joke.id} id={joke.id}>
                     <div className="joke-card-title">
                         <div className="joke-card-vote">
-                            <p>Posted on {moment(joke.date).format("MMMM D, YYYY")} | Votes: {joke.rating}</p>
+                            <p>Posted on {moment(joke.date).format("MM/D/YY")} | <span className="detail-label">Votes: {joke.rating}</span></p>
                         </div>
-                        <h4><span className="detail-label">Q: </span>{joke.question}</h4>
-                        <h4><span className="detail-label">A: </span>{joke.answer}</h4>
-                        <button id={joke.id} type='submit' onClick={this.handleDelete}><FontAwesomeIcon icon={faTrashAlt} size="lg" /> Delete</button>
+                        <h4>Q: {joke.question}</h4>
+                        <h4>A: {joke.answer}</h4>
+                        <button id={joke.id} type='submit' onClick={this.handleDelete}>Delete <FontAwesomeIcon icon={faTrashAlt} size="lg" /></button>
                     </div>
                 </div>
                 ))}

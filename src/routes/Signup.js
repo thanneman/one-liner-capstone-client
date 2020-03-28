@@ -3,7 +3,6 @@ import ValidationError from '../components/validation-error'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 
 
 export default class Signup extends Component {
@@ -169,7 +168,6 @@ export default class Signup extends Component {
                         </div>
                     </div>
                 </main>
-                <Footer />
             </>
         )
     }

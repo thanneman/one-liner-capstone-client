@@ -5,19 +5,27 @@ import JokeApiService from '../services/joke-api-service'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faArrowUp, } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Joke extends Component {
     static contextType = MainContext;
     // Set initial state for user before fetch
-    state = {
-        //loading: true,
-        jokes: [],
-        error: null,
+    constructor(props) {
+        super(props);
+        this.state = {
+            jokes: [],
+            error: null,
+            upvote: {
+                touched: false
+            },
+            downvote: {
+                touched: false
+            },
+        }
     }
 
-    // Helper function to fecth/update state after upvote
+    // Helper function to fecth/update state after upvote/downvote
     updateJokes () {
         setTimeout(() => {
             JokeApiService.getAllJokes()
@@ -48,7 +56,15 @@ export default class Joke extends Component {
         e.preventDefault()
         const { id } = e.target
         const jokeId = Number(id)
-        JokeApiService.updateJokeVote(jokeId, this.updateJokes())
+        JokeApiService.upvoteJoke(jokeId, this.updateJokes())
+    }
+
+    //Handles downvote on joke
+    handleDownvote = e => {
+        e.preventDefault()
+        const { id } = e.target
+        const jokeId = Number(id)
+        JokeApiService.downvoteJoke(jokeId, this.updateJokes())
     }
 
     render() {
@@ -66,11 +82,12 @@ export default class Joke extends Component {
                 <div className="joke-card" key={joke.id} id={joke.id}>
                     <div className="joke-card-title">
                         <div className="joke-card-vote">
-                            <p>Posted by: {joke.username} on {moment(joke.date).format("MMMM D, YYYY")} | Votes: {joke.rating}</p>
+                            <p>Posted by: {joke.username} on {moment(joke.date).format("MM/D/YY")} | <span className="detail-label">Votes: {joke.rating}</span></p>
                         </div>
-                        <h4><span className="detail-label">Q: </span>{joke.question}</h4>
-                        <h4><span className="detail-label">A: </span>{joke.answer}</h4>
-                        <button id={joke.id} type="submit" onClick={this.handleUpvote}><FontAwesomeIcon icon={faArrowUp} size="1x" /> Upvote</button>
+                        <h4>Q: {joke.question}</h4>
+                        <h4>A: {joke.answer}</h4>
+                        <button id={joke.id} type="submit" onClick={this.handleUpvote}>Upvote <FontAwesomeIcon icon={faArrowUp} size="1x" /></button>
+                        <button id={joke.id} type="submit" onClick={this.handleDownvote}>Downvote <FontAwesomeIcon icon={faArrowDown} size="1x" /></button>
                     </div>
                 </div>
                 ))}

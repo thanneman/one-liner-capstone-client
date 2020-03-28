@@ -88,9 +88,19 @@ const JokeApiService = {
         console.error(error)
       })
   },
-  // PATCH joke with new a rating
-  updateJokeVote(jokeId, cb) {
-    fetch(`${config.API_ENDPOINT}/jokes/${jokeId}`, {
+  // PATCH joke with upvote
+  upvoteJoke(jokeId, cb) {
+    fetch(`${config.API_ENDPOINT}/jokes/upvote/${jokeId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+  },
+  // PATCH joke with downvote
+  downvoteJoke(jokeId, cb) {
+    fetch(`${config.API_ENDPOINT}/jokes/downvote/${jokeId}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',

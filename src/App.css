@@ -1,4 +1,582 @@
 * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'proxima-nova', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #22252C;
+  text-align: center;
+  line-height: 1.5;
+  background-color: #ffffff;
+}
+
+a {
+  color: #22252C;
+  text-decoration: none;
+  transition: color .15s
+      ease-in-out;
+}
+
+a:hover {
+  color: #0e60fb;
+}
+
+.error {
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 14px;
+  background-color: lightpink;
+  border-radius: 3px;
+  color: darkred;
+}
+
+header {
+  padding: 15px;
+  width: 100%;
+}
+
+header p {
+  margin: 0px;
+}
+
+section {
+  min-height: 50px;
+  padding: 15px 15px;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 1% 0;
+}
+
+.footer p {
+  font-size: 13px;
+  margin: 2px auto;
+  color: #22252C;
+}
+
+.fab {
+  font-size: 15px;
+  margin: 2px auto;
+  color: #22252C;
+  padding: 0px 2px;
+}
+
+.detail-label {
+  font-weight: bold;
+}
+
+/* Navigation */
+nav {
+  padding: 12px 5% 8px 5%;
+  text-align: left;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+nav .logo {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'proxima-nova', sans-serif;
+}
+
+nav .logo img {
+  width: 100%;
+}
+
+nav ul {
+  display: inline-block;
+  list-style: none;
+  position: absolute;
+  right: 5%;
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'proxima-nova', sans-serif;
+}
+
+/* Landing/Login/Signup */
+.top-joke {
+  width: 50%;
+  margin: 0px auto;
+  padding: 5px 0px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  min-height: 120px;
+}
+
+.demo p {
+  font-size: 18px;
+  color: #22252C;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.login-container {
+  width: 60%;
+  margin: 50px auto;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'proxima-nova', sans-serif;
+  font-weight: 300;
+}
+
+.login {
+  margin: 0px auto 20px auto;
+}
+
+.login-logo {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.login-logo img {
+  width: 100%;
+}
+
+.login h3 {
+  margin: 10px auto;
+}
+
+.login a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.signup-form input {
+  display: block;
+  appearance: none;
+  outline: 0;
+  border: 1px solid #f0f0f0;
+  background-color: #f0f0f0;
+  width: 300px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+
+.signup-form input:hover {
+  background-color: #f0f0f0;
+}
+
+.signup-form input:focus {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.signup-form button {
+  background-color: #0e60fb;
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 3px;
+  width: 300px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25;
+  margin-bottom: 10px;
+}
+
+.signup-form button:hover {
+  background-color: #0B48BA;
+}
+
+.signup-form button:disabled {
+  background-color: #cbcbcb;
+  cursor: not-allowed;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  color: #ffffff;
+  background-color: #0e60fb;
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 5px;
+  font-size: 18px;
+  transition-duration: 0.25;
+}
+
+.login-btn:hover {
+  color: #ffffff;
+  background-color: #0B48BA;
+}
+
+/* Joke Lists */
+.no-joke-btn {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.joke-list {
+  width: 90%;
+  margin: 0px auto;
+  padding: 0;
+}
+
+.joke-card {
+  width: 100%;
+  margin: 2% auto;
+  background-color: #f0f0f0;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  text-align: left;
+  padding: 10px;
+}
+
+.joke-card-title {
+  width: 100%;
+}
+
+.joke-card-title h4 {
+  margin: 0px;
+}
+
+.joke-card-info {
+  width: 100%;
+}
+
+.joke-card-vote {
+  width: 100%;
+  font-size: 14px;
+}
+
+.joke-card-vote p {
+  font-size: 14px;
+  margin: 5px;
+}
+
+.joke-card button {
+  display: inline-block;
+  width: 150px;
+  padding: 5px 0px;
+  margin: 5px;
+  color: #ffffff;
+  background-color: #0e60fb;
+  cursor: pointer;
+  border-color: transparent;
+  border-radius: 5px;
+  font-size: 18px;
+  transition-duration: 0.25;
+}
+
+.joke-card button:hover {
+  color: #ffffff;
+  background-color: #0B48BA;
+}
+
+/* Add Joke */
+.add-joke {
+  width: 50%;
+  margin: 2% auto;
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.joke-card-lg {
+  display: block;
+  width: 50%;
+  color: #444444;
+  background-color: #ededed;
+  min-height: 300px;
+  margin: 20px auto;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.new-joke-form {
+  text-align: center;
+}
+
+.new-joke-form input, .new-joke-form select {
+  display: block;
+  appearance: none;
+  outline: 0;
+  border: 1px solid #d3d3d3;
+  background-color: #ffffff;
+  width: 400px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+
+.new-joke-form input:hover {
+  background-color: #ffffff;
+}
+
+.new-joke-form input:focus {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.joke-card-info button {
+  background-color: #0e60fb;
+  padding: 10px 15px;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25;
+  margin-top: 10px;
+}
+
+.joke-card-info button:hover {
+  background-color: #0B48BA;
+}
+
+.joke-card-info button:disabled {
+  color: #acacac;
+  background-color: #c2c2c2;
+  cursor: not-allowed;
+}
+
+/* Start iPhone portrait 320px */
+@media only screen and (min-width: 320px) {
+  header {
+    padding: 15px;
+    width: 100%;
+  }
+  
+  header p {
+    margin: 8px 0px;
+    font-size: 16px;
+  }
+
+  .error {
+    font-size: 13px;
+  }
+
+  h3 {
+    margin: 5px 0;
+  }
+
+  /* Landing/Login/Signup */
+  .top-joke {
+    width: 90%;
+  }
+  
+  .login-container {
+    width: 90%;
+    margin: 50px auto;
+    padding: 0px;
+  }
+  
+  .login-container p {
+    font-size: 16px;
+  }
+  
+  .signup-form input {
+    width: 100%;
+  }
+  
+  .signup-form button {
+    width: 100%;
+  }
+  
+  .demo p {
+    font-size: 16px;
+  }
+
+  /* Navigation */
+  nav {
+    text-align: center;
+  }
+  
+  nav .logo {
+    font-size: 14px;
+    display: block;
+  }
+  
+  nav ul {
+    position: relative;
+    right: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 5px;
+    font-size: 10px;
+  }
+
+  /* Joke Lists */
+  .joke-card {
+    padding: 5px;
+  }
+
+  .joke-card-vote p {
+    font-size: 11px;
+  }
+
+  .joke-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .joke-card button {
+    width: 45%;
+    font-size: 14px;
+  }
+
+  /* Add Joke */
+  .joke-card-lg {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  .new-joke-form {
+    text-align: center;
+  }
+  
+  .new-joke-form input, .new-joke-form select {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .joke-card-info button {
+    width: 50%;
+    font-size: 16px;
+  }
+}
+/* End iPhone portrait 320px */
+
+
+/* Start iPad potrait 768px */
+@media only screen and (min-width: 768px) {
+
+  .error {
+    font-size: 13px;
+  }
+
+  h3 {
+    margin: 5px 0;
+  }
+
+  /* Landing/Login/Signup */
+  header {
+    padding: 15px;
+    width: 100%;
+  }
+  
+  header p {
+    margin: 8px 0px;
+    font-size: 16px;
+  }
+
+  .top-joke {
+    width: 80%;
+  }
+  
+  .login-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 0px;
+  }
+  
+  .login-container p {
+    font-size: 16px;
+  }
+  
+  .signup-form input {
+    width: 100%;
+  }
+  
+  .signup-form button {
+    width: 100%;
+  }
+  
+  .demo p {
+    font-size: 16px;
+  }
+
+  /* Navigation */
+  nav {
+    text-align: center;
+  }
+  
+  nav .logo {
+    font-size: 18px;
+    display: block;
+  }
+  
+  nav ul {
+    position: relative;
+    right: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  /* Joke Lists */
+  .joke-card {
+    padding: 5px;
+  }
+
+  .joke-card-vote p {
+    font-size: 12px;
+  }
+
+  .joke-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .joke-card button {
+    width: 20%;
+    font-size: 14px;
+  }
+
+  /* Add Joke */
+  .joke-card-lg {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  .new-joke-form {
+    text-align: center;
+  }
+  
+  .new-joke-form input, .new-joke-form select {
+    width: 90%;
+    font-size: 14px;
+  }
+  
+  .joke-card-info button {
+    width: 50%;
+    font-size: 16px;
+  }
+}
+/* End iPad potrait 768px */
+
+
+/* Start iPad lanscape / small laptop 1024px */
+@media only screen and (min-width: 1024px) {
+  * {
     box-sizing: border-box;
   }
   
@@ -20,43 +598,26 @@
   }
   
   a:hover {
-    color: #f79401;
+    color: #0e60fb;
   }
   
-  nav {
-    padding: 12px 10% 8px 10%;
-    text-align: left;
-  }
-  
-  nav .logo {
-    display: inline-block;
-    width: 170px;
-  }
-  
-  nav .logo img {
-    width: 100%;
-  }
-  
-  nav ul {
-    display: inline-block;
-    list-style: none;
-    position: absolute;
-    right: 10%;
-    margin: 0;
-  }
-  
-  nav li {
-    display: inline-block;
-    margin-left: 20px;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: 'proxima-nova', sans-serif;
+  .error {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 14px;
+    background-color: lightpink;
+    border-radius: 3px;
+    color: darkred;
   }
   
   header {
     padding: 15px;
     width: 100%;
+  }
+  
+  header p {
+    margin: 0px;
   }
   
   section {
@@ -81,14 +642,63 @@
     color: #22252C;
     padding: 0px 2px;
   }
-
+  
+  .detail-label {
+    font-weight: bold;
+  }
+  
+  /* Navigation */
+  nav {
+    padding: 12px 5% 8px 5%;
+    text-align: left;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  
+  nav .logo {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'proxima-nova', sans-serif;
+  }
+  
+  nav .logo img {
+    width: 100%;
+  }
+  
+  nav ul {
+    display: inline-block;
+    list-style: none;
+    position: absolute;
+    right: 5%;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'proxima-nova', sans-serif;
+  }
+  
+  /* Landing/Login/Signup */
   .top-joke {
     width: 50%;
     margin: 0px auto;
-    padding-top: 5px;
+    padding: 5px 0px;
     border-radius: 5px;
     background-color: #f0f0f0;
     min-height: 120px;
+  }
+  
+  .demo p {
+    font-size: 18px;
+    color: #22252C;
+    margin: 0 auto;
+    font-weight: 400;
   }
   
   .login-container {
@@ -149,9 +759,9 @@
   }
   
   .signup-form button {
-    background-color: #f0f0f0;
+    background-color: #0e60fb;
     padding: 10px 15px;
-    color: #22252C;
+    color: #ffffff;
     border-radius: 3px;
     width: 300px;
     cursor: pointer;
@@ -161,7 +771,7 @@
   }
   
   .signup-form button:hover {
-    background-color: rgb(217, 224, 230);
+    background-color: #0B48BA;
   }
   
   .signup-form button:disabled {
@@ -169,30 +779,31 @@
     cursor: not-allowed;
   }
   
-  .error {
-    max-width: 400px;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 14px;
-    background-color: lightpink;
-    border-radius: 3px;
-    color: darkred;
+  .login-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    color: #ffffff;
+    background-color: #0e60fb;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    transition-duration: 0.25;
   }
   
-  .demo p {
-    font-size: 18px;
-    color: #22252C;
-    margin: 0 auto;
-    font-weight: 400;
+  .login-btn:hover {
+    color: #ffffff;
+    background-color: #0B48BA;
   }
-
+  
+  /* Joke Lists */
   .no-joke-btn {
     display: block;
     margin: 10px auto 0 auto;
   }
-
+  
   .joke-list {
-    width: 90%;
+    width: 80%;
     margin: 0px auto;
     padding: 0;
   }
@@ -200,8 +811,8 @@
   .joke-card {
     width: 100%;
     margin: 2% auto;
-    background-color: #bbb;
-    border: 1px solid #bbb;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
     border-radius: 5px;
     text-align: left;
     padding: 10px;
@@ -218,40 +829,46 @@
   .joke-card-info {
     width: 100%;
   }
-
+  
   .joke-card-vote {
     width: 100%;
     font-size: 14px;
   }
-
+  
   .joke-card-vote p {
     font-size: 14px;
     margin: 5px;
   }
-
-  .add-joke {
-  width: 50%;
-  margin: 2% auto;
-  background-color: #bbb;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-}
-
-.joke-card-lg {
+  
+  .joke-card button {
+    display: inline-block;
+    width: 150px;
+    padding: 5px 0px;
+    margin: 5px;
+    color: #ffffff;
+    background-color: #0e60fb;
+    cursor: pointer;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    transition-duration: 0.25;
+  }
+  
+  .joke-card button:hover {
+    color: #ffffff;
+    background-color: #0B48BA;
+  }
+  
+  /* Add Joke */  
+  .joke-card-lg {
     display: block;
-    width: 50%;
+    width: 70%;
     color: #444444;
     background-color: #ededed;
     min-height: 300px;
     margin: 20px auto;
     border-radius: 8px;
-    padding: 5px;
-  }
-  
-  .detail-label {
-    font-weight: bold;
-  }
-  .new-joke-form {
+    padding: 10px 5px;
     text-align: center;
   }
   
@@ -261,7 +878,7 @@
     outline: 0;
     border: 1px solid #d3d3d3;
     background-color: #ffffff;
-    width: 400px;
+    width: 90%;
     border-radius: 3px;
     padding: 10px 15px;
     margin: 0 auto 10px auto;
@@ -282,9 +899,9 @@
   }
   
   .joke-card-info button {
-    background-color: #d3d3d3;
+    background-color: #0e60fb;
     padding: 10px 15px;
-    color: #444444 !important;
+    color: #ffffff;
     border-radius: 5px;
     width: 250px;
     cursor: pointer;
@@ -294,47 +911,45 @@
   }
   
   .joke-card-info button:hover {
-    background-color: #b8b8b8;
+    background-color: #0B48BA;
   }
   
   .joke-card-info button:disabled {
-    background-color: #9d9d9d;
+    color: #acacac;
+    background-color: #c2c2c2;
     cursor: not-allowed;
   }
+}
+/* Start iPad lanscape / small laptop 1024px */
 
-  .joke-card button {
-    padding: 5px 10px;
-    margin-top: 5px;
-    color: #444444;
-    background-color: #9d9d9d;
-    cursor: pointer;
-    border-color: transparent;
-    border-radius: 5px;
-    font-size: 18px;
-    transition-duration: 0.25;
+
+/* Start large desktop 1600px */
+@media only screen and (min-width: 1600px) {  
+  /* Navigation */
+  nav {
+    padding: 12px 10% 8px 10%;
   }
   
-  .joke-card button:hover {
-    color: #ffffff;
-    background-color: #5a5a5a;
+  nav ul {
+    right: 10%;
   }
-
-
-  /*iPhone portrait*/
-@media only screen and (min-width: 320px) {
-    .top-joke {
-        width: 95%;
-    }
-
-    .login-container {
-        width: 95%;
-    }
-
-    .joke-card-lg {
-        width: 100%;
-    }
-
-    .new-joke-form input, .new-joke-form textarea {
-        width: 95%;
-    }
+  
+  /* Landing/Login/Signup */
+  .top-joke {
+    max-width: 1000px;
+  }
+  
+  /* Joke Lists */
+  .joke-list {
+    width: 60%;
+    max-width: 1000px;
+    margin: 0px auto;
+    padding: 0;
+  }
+  
+  /* Add Joke */  
+  .joke-card-lg {
+    max-width: 1000px;
+  }
 }
+/* End large desktop 1600px */

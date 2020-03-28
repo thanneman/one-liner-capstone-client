@@ -47,6 +47,7 @@ export default class JokeList extends Component {
         return (
             <MainContext.Provider value={contextValue}>
                 <section className="joke-list">
+                    <h3>All Jokes</h3>
                     <Joke />
                 </section>
             </MainContext.Provider>

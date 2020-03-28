@@ -4,7 +4,6 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import TokenService from '../services/token-service'
 import AuthApiService from '../services/auth-api-service'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 
 export default class Login extends Component {
 
@@ -86,7 +85,6 @@ export default class Login extends Component {
                         <p>Password: Password1</p>
                     </div>
                 </main>
-                <Footer />
             </>
         )
     }

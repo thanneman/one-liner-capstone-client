@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MainContext from '../MainContext'
 import UserJoke from '../components/UserJoke'
 
+
 export default class UserJokeList extends Component {
     state = {
         jokes: [],
@@ -39,6 +40,7 @@ export default class UserJokeList extends Component {
         return (
             <MainContext.Provider value={contextValue}>
                 <section className="joke-list">
+                    <h3>My Jokes</h3>
                     <UserJoke />
                 </section>
             </MainContext.Provider>
