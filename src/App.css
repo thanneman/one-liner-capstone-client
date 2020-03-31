@@ -281,6 +281,11 @@ nav li {
   background-color: #0B48BA;
 }
 
+.joke-card button:disabled, .joke-card button[disabled]:hover {
+  background-color: #cbcbcb;
+  cursor: not-allowed;
+}
+
 /* Add Joke */
 .add-joke {
   width: 50%;

@@ -90,7 +90,7 @@ export default class AddJoke extends Component {
 
                         <label>Joke Answer:</label>
                         <input type="text" name="answer" id="answer" required placeholder="Your joke answer" onChange={e => this.updateAnswer(e.target.value)} />
-                        <input type="hidden" name="rating" id="rating" value="1" />
+                        <input type="hidden" name="rating" id="rating" value="0" />
                         {this.state.answer.touched && (<ValidationError message={this.validateAnswer()} />)}
 
                         {this.state.error && (<ValidationError message={this.state.error} />)}

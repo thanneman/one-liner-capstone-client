@@ -2,14 +2,11 @@ import React from 'react'
 
 const MainContext = React.createContext({
     jokes: [],
-    id: '',
-    question: '',
-    answer: '',
-    rating: '',
-    error: '',
-    addJoke: () => {},
-    deleteJoke: () => {},
-    addUser: () => {},
+    upvoteDisabled: [],
+    downvoteDisabled: [],
+    handleUpvote: () => {},
+    handleDownvote: () => {},
+    updateJokes: () => {},
 })
 
 export default MainContext
