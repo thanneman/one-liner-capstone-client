@@ -5,8 +5,9 @@ const JokeApiService = {
   // GET all jokes
   getAllJokes() {
     return fetch(`${config.API_ENDPOINT}/jokes`, {
+      method: 'GET',
       headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json',
       },
     })
       .then(res =>

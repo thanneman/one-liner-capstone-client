@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import TokenService from '../services/token-service'
 import { NavLink } from 'react-router-dom'
+import TokenService from '../services/token-service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faSignOutAlt, faListAlt } from '@fortawesome/free-solid-svg-icons'
 import { faLaughBeam } from '@fortawesome/free-regular-svg-icons'
 
 export default class NavBar extends Component {
-
+    // Handles user logout
     handleLogout = () => {
         TokenService.clearAuthToken()
         window.location = '/'

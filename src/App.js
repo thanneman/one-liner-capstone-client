@@ -12,36 +12,36 @@ import UserJokes from './routes/UserJokes'
 import './App.css'
 
 export default class App extends Component {
-    state = {
-      jokes: [],
-      userJokes: [],
-      upvoteDisabled: [],
-      downvoteDisabled: [],
-      error: null,
-    }
+  state = {
+    jokes: [],
+    userJokes: [],
+    upvoteDisabled: [],
+    downvoteDisabled: [],
+    error: null,
+  }
     
-    // Helper function to fecth/update state after upvote/downvote
-    updateJokes () {
-      setTimeout(() => {
-          JokeApiService.getAllJokes()
-          .then(resJson =>
-              this.setState({
-                  jokes: resJson
-              }))
-              .catch(res => {
-                  this.setState({ error: res.error })
-              })
-        }, 1000);
-      setTimeout(() => {
-        JokeApiService.getUserJokes()
+  // Helper function to fecth/update state after upvote/downvote
+  updateJokes () {
+    setTimeout(() => {
+        JokeApiService.getAllJokes()
         .then(resJson =>
             this.setState({
-              userJokes: resJson
+                jokes: resJson
             }))
             .catch(res => {
                 this.setState({ error: res.error })
             })
-      }, 1000);
+    }, 1000);
+    setTimeout(() => {
+      JokeApiService.getUserJokes()
+      .then(resJson =>
+          this.setState({
+            userJokes: resJson
+          }))
+          .catch(res => {
+              this.setState({ error: res.error })
+          })
+    }, 1000);
   }
 
   deleteJoke = jokeId => {
@@ -57,7 +57,7 @@ export default class App extends Component {
     this.setState({
         jokes: newJokes,
     })
-}
+  }
 
   // Fetches jokes and updates state when the component mounts
   componentDidMount() {
@@ -67,14 +67,6 @@ export default class App extends Component {
               .catch(res => {
                   this.setState({ error: res.error })
               })
-      JokeApiService.getUserJokes()
-      .then(resJson =>
-          this.setState({
-              userJokes: resJson
-          }))
-          .catch(res => {
-              this.setState({ error: res.error })
-          })
   }
 
   //Handles upvote on joke
@@ -103,6 +95,16 @@ export default class App extends Component {
     JokeApiService.deleteJoke(jokeId, this.deleteJoke(jokeId))
   }
 
+  setUserJokes = e => {
+    JokeApiService.getUserJokes()
+          .then(resJson =>
+              this.setState({ userJokes: resJson }))
+              .catch(res => {
+                  this.setState({ error: res.error })
+              })
+  }
+
+
   render() {
     const contextValue = {
       jokes: this.state.jokes,
@@ -114,6 +116,7 @@ export default class App extends Component {
       updateJokes: this.updateJokes,
       deleteJoke: this.deleteJoke,
       handleDelete: this.handleDelete,
+      setUserJokes: this.setUserJokes,
     }
     return (
       <div className="App">

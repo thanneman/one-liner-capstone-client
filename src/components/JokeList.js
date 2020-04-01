@@ -8,7 +8,6 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default class JokeList extends Component {
     static defaultProps = {
-        jokes: [],
         error: null,
         
     }

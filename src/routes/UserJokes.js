@@ -5,8 +5,6 @@ import UserJokeList from '../components/UserJokeList'
 
 
 export default class UserJokes extends Component {
-
-
     render() {
         return (
             <>

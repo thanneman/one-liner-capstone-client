@@ -10,6 +10,8 @@ const MainContext = React.createContext({
     updateJokes: () => {},
     deleteJoke: () => {},
     handleDelete: () => {},
+    setUserJokes: () => {},
+    handleLogout: () => {},
 })
 
 export default MainContext
