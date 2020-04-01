@@ -14,6 +14,7 @@ import './App.css'
 export default class App extends Component {
     state = {
       jokes: [],
+      userJokes: [],
       upvoteDisabled: [],
       downvoteDisabled: [],
       error: null,
@@ -31,7 +32,32 @@ export default class App extends Component {
                   this.setState({ error: res.error })
               })
         }, 1000);
+      setTimeout(() => {
+        JokeApiService.getUserJokes()
+        .then(resJson =>
+            this.setState({
+              userJokes: resJson
+            }))
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+      }, 1000);
   }
+
+  deleteJoke = jokeId => {
+    const newUserJokes = this.state.userJokes.filter(rec => 
+        rec.id !== jokeId
+    )
+    this.setState({
+        userJokes: newUserJokes,
+    })
+    const newJokes = this.state.jokes.filter(rec => 
+      rec.id !== jokeId
+    )
+    this.setState({
+        jokes: newJokes,
+    })
+}
 
   // Fetches jokes and updates state when the component mounts
   componentDidMount() {
@@ -41,6 +67,14 @@ export default class App extends Component {
               .catch(res => {
                   this.setState({ error: res.error })
               })
+      JokeApiService.getUserJokes()
+      .then(resJson =>
+          this.setState({
+              userJokes: resJson
+          }))
+          .catch(res => {
+              this.setState({ error: res.error })
+          })
   }
 
   //Handles upvote on joke
@@ -59,32 +93,43 @@ export default class App extends Component {
     const jokeId = Number(id)
     JokeApiService.downvoteJoke(jokeId, this.updateJokes())
     this.setState({downvoteDisabled: [...this.state.downvoteDisabled, jokeId]})
-}
-     
-    render() {
-      const contextValue = {
-        jokes: this.state.jokes,
-        upvoteDisabled: this.state.upvoteDisabled,
-        downvoteDisabled: this.state.downvoteDisabled,
-        handleUpvote: this.handleUpvote,
-        handleDownvote: this.handleDownvote,
-        updateJokes: this.updateJokes,
-      }
-      return (
-        <div className="App">
-            <Switch>
-              <Route exact path={'/'} component={Landing} />
-              <Route path={'/login'} component={Login} />
-              <Route path={'/signup'} component={Signup} />
-              <MainContext.Provider value={contextValue}>
-                <PrivateRoute path={'/dashboard'} component={Dashboard} />
-                <PrivateRoute path={'/newjoke'} component={NewJoke} />
-                <PrivateRoute path={'/myjokes'} component={UserJokes} />
-              </MainContext.Provider>
-            </Switch>
-        </div>
-      )
+  }
+
+  // Handles delete for logged in user
+  handleDelete = e => {
+    e.preventDefault()
+    const { id } = e.target
+    const jokeId = Number(id)
+    JokeApiService.deleteJoke(jokeId, this.deleteJoke(jokeId))
+  }
+
+  render() {
+    const contextValue = {
+      jokes: this.state.jokes,
+      userJokes: this.state.userJokes,
+      upvoteDisabled: this.state.upvoteDisabled,
+      downvoteDisabled: this.state.downvoteDisabled,
+      handleUpvote: this.handleUpvote,
+      handleDownvote: this.handleDownvote,
+      updateJokes: this.updateJokes,
+      deleteJoke: this.deleteJoke,
+      handleDelete: this.handleDelete,
     }
+    return (
+      <div className="App">
+          <Switch>
+            <Route exact path={'/'} component={Landing} />
+            <Route path={'/login'} component={Login} />
+            <Route path={'/signup'} component={Signup} />
+            <MainContext.Provider value={contextValue}>
+              <PrivateRoute path={'/dashboard'} component={Dashboard} />
+              <PrivateRoute path={'/newjoke'} component={NewJoke} />
+              <PrivateRoute path={'/myjokes'} component={UserJokes} />
+            </MainContext.Provider>
+          </Switch>
+      </div>
+    )
+  }
 
 
 }

@@ -219,6 +219,9 @@ nav li {
 }
 
 /* Joke Lists */
+.no-jokes {
+  margin: 20% auto;
+}
 .no-joke-btn {
   display: block;
   margin: 10px auto 0 auto;
@@ -802,10 +805,6 @@ nav li {
   }
   
   /* Joke Lists */
-  .no-joke-btn {
-    display: block;
-    margin: 10px auto 0 auto;
-  }
   
   .joke-list {
     width: 80%;
