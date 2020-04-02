@@ -10,11 +10,14 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 export default class UserJokeList extends Component {
     static defaultProps = {
         userJokes: [],
-        error: null,
-        
+        error: null
     }
 
-    static contextType = MainContext;
+    static contextType = MainContext
+
+    componentDidMount() {
+        this.context.setUserJokes()
+    }
     
     render() {
         const { userJokes, error } = this.context

@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import JokeList from './JokeList';
+import JokeList from './JokeList'
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
+  const div = document.createElement('div')
   ReactDOM.render(
     <BrowserRouter>
       <JokeList />
-    </BrowserRouter>, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+    </BrowserRouter>,
+    div
+  )
+  ReactDOM.unmountComponentAtNode(div)
+})

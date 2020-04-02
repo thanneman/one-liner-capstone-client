@@ -6,17 +6,16 @@ body {
   font-family: 'proxima-nova', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: #22252C;
+  color: #22252c;
   text-align: center;
   line-height: 1.5;
   background-color: #ffffff;
 }
 
 a {
-  color: #22252C;
+  color: #22252c;
   text-decoration: none;
-  transition: color .15s
-      ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 
 a:hover {
@@ -55,13 +54,13 @@ footer {
 .footer p {
   font-size: 13px;
   margin: 2px auto;
-  color: #22252C;
+  color: #22252c;
 }
 
 .fab {
   font-size: 15px;
   margin: 2px auto;
-  color: #22252C;
+  color: #22252c;
   padding: 0px 2px;
 }
 
@@ -118,7 +117,7 @@ nav li {
 
 .demo p {
   font-size: 18px;
-  color: #22252C;
+  color: #22252c;
   margin: 0 auto;
   font-weight: 400;
 }
@@ -167,7 +166,7 @@ nav li {
   display: block;
   text-align: center;
   font-size: 18px;
-  transition-duration: 0.25s;
+  transition: color 0.15s ease-in-out;
   font-weight: 300;
 }
 
@@ -188,12 +187,12 @@ nav li {
   width: 300px;
   cursor: pointer;
   font-size: 18px;
-  transition-duration: 0.25;
+  transition: color 0.15s ease-in-out;
   margin-bottom: 10px;
 }
 
 .signup-form button:hover {
-  background-color: #0B48BA;
+  background-color: #0b48ba;
 }
 
 .signup-form button:disabled {
@@ -210,12 +209,12 @@ nav li {
   border-color: transparent;
   border-radius: 5px;
   font-size: 18px;
-  transition-duration: 0.25;
+  transition: color 0.15s ease-in-out;
 }
 
 .login-btn:hover {
   color: #ffffff;
-  background-color: #0B48BA;
+  background-color: #0b48ba;
 }
 
 /* Joke Lists */
@@ -276,15 +275,16 @@ nav li {
   border-color: transparent;
   border-radius: 5px;
   font-size: 18px;
-  transition-duration: 0.25;
+  transition: color 0.15s ease-in-out;
 }
 
 .joke-card button:hover {
   color: #ffffff;
-  background-color: #0B48BA;
+  background-color: #0b48ba;
 }
 
-.joke-card button:disabled, .joke-card button[disabled]:hover {
+.joke-card button:disabled,
+.joke-card button[disabled]:hover {
   background-color: #cbcbcb;
   cursor: not-allowed;
 }
@@ -313,7 +313,8 @@ nav li {
   text-align: center;
 }
 
-.new-joke-form input, .new-joke-form select {
+.new-joke-form input,
+.new-joke-form select {
   display: block;
   appearance: none;
   outline: 0;
@@ -326,7 +327,7 @@ nav li {
   display: block;
   text-align: center;
   font-size: 18px;
-  transition-duration: 0.25s;
+  transition: color 0.15s ease-in-out;
   font-weight: 300;
 }
 
@@ -347,12 +348,12 @@ nav li {
   width: 250px;
   cursor: pointer;
   font-size: 18px;
-  transition-duration: 0.25;
+  transition: color 0.15s ease-in-out;
   margin-top: 10px;
 }
 
 .joke-card-info button:hover {
-  background-color: #0B48BA;
+  background-color: #0b48ba;
 }
 
 .joke-card-info button:disabled {
@@ -367,7 +368,7 @@ nav li {
     padding: 15px;
     width: 100%;
   }
-  
+
   header p {
     margin: 8px 0px;
     font-size: 16px;
@@ -385,25 +386,25 @@ nav li {
   .top-joke {
     width: 90%;
   }
-  
+
   .login-container {
     width: 90%;
     margin: 50px auto;
     padding: 0px;
   }
-  
+
   .login-container p {
     font-size: 16px;
   }
-  
+
   .signup-form input {
     width: 100%;
   }
-  
+
   .signup-form button {
     width: 100%;
   }
-  
+
   .demo p {
     font-size: 16px;
   }
@@ -412,18 +413,18 @@ nav li {
   nav {
     text-align: center;
   }
-  
+
   nav .logo {
     font-size: 14px;
     display: block;
   }
-  
+
   nav ul {
     position: relative;
     right: 0;
     padding: 0;
   }
-  
+
   nav li {
     margin: 5px;
     font-size: 10px;
@@ -457,12 +458,13 @@ nav li {
   .new-joke-form {
     text-align: center;
   }
-  
-  .new-joke-form input, .new-joke-form select {
+
+  .new-joke-form input,
+  .new-joke-form select {
     width: 100%;
     font-size: 14px;
   }
-  
+
   .joke-card-info button {
     width: 50%;
     font-size: 16px;
@@ -470,10 +472,8 @@ nav li {
 }
 /* End iPhone portrait 320px */
 
-
 /* Start iPad potrait 768px */
 @media only screen and (min-width: 768px) {
-
   .error {
     font-size: 13px;
   }
@@ -487,7 +487,7 @@ nav li {
     padding: 15px;
     width: 100%;
   }
-  
+
   header p {
     margin: 8px 0px;
     font-size: 16px;
@@ -496,25 +496,25 @@ nav li {
   .top-joke {
     width: 80%;
   }
-  
+
   .login-container {
     width: 80%;
     margin: 50px auto;
     padding: 0px;
   }
-  
+
   .login-container p {
     font-size: 16px;
   }
-  
+
   .signup-form input {
     width: 100%;
   }
-  
+
   .signup-form button {
     width: 100%;
   }
-  
+
   .demo p {
     font-size: 16px;
   }
@@ -523,18 +523,18 @@ nav li {
   nav {
     text-align: center;
   }
-  
+
   nav .logo {
     font-size: 18px;
     display: block;
   }
-  
+
   nav ul {
     position: relative;
     right: 0;
     padding: 0;
   }
-  
+
   nav li {
     margin: 5px;
     font-size: 14px;
@@ -568,12 +568,13 @@ nav li {
   .new-joke-form {
     text-align: center;
   }
-  
-  .new-joke-form input, .new-joke-form select {
+
+  .new-joke-form input,
+  .new-joke-form select {
     width: 90%;
     font-size: 14px;
   }
-  
+
   .joke-card-info button {
     width: 50%;
     font-size: 16px;
@@ -581,34 +582,32 @@ nav li {
 }
 /* End iPad potrait 768px */
 
-
 /* Start iPad lanscape / small laptop 1024px */
 @media only screen and (min-width: 1024px) {
   * {
     box-sizing: border-box;
   }
-  
+
   body {
     font-family: 'proxima-nova', sans-serif;
     font-weight: 400;
     font-size: 20px;
-    color: #22252C;
+    color: #22252c;
     text-align: center;
     line-height: 1.5;
     background-color: #ffffff;
   }
-  
+
   a {
-    color: #22252C;
+    color: #22252c;
     text-decoration: none;
-    transition: color .15s
-        ease-in-out;
+    transition: color 0.15s ease-in-out;
   }
-  
+
   a:hover {
     color: #0e60fb;
   }
-  
+
   .error {
     max-width: 400px;
     margin: 10px auto;
@@ -618,43 +617,43 @@ nav li {
     border-radius: 3px;
     color: darkred;
   }
-  
+
   header {
     padding: 15px;
     width: 100%;
   }
-  
+
   header p {
     margin: 0px;
   }
-  
+
   section {
     min-height: 50px;
     padding: 15px 15px;
   }
-  
+
   footer {
     margin-top: 50px;
     padding: 1% 0;
   }
-  
+
   .footer p {
     font-size: 13px;
     margin: 2px auto;
-    color: #22252C;
+    color: #22252c;
   }
-  
+
   .fab {
     font-size: 15px;
     margin: 2px auto;
-    color: #22252C;
+    color: #22252c;
     padding: 0px 2px;
   }
-  
+
   .detail-label {
     font-weight: bold;
   }
-  
+
   /* Navigation */
   nav {
     padding: 12px 5% 8px 5%;
@@ -662,7 +661,7 @@ nav li {
     background-color: #f0f0f0;
     border-bottom: 1px solid #d4d4d4;
   }
-  
+
   nav .logo {
     display: inline-block;
     font-size: 22px;
@@ -670,11 +669,11 @@ nav li {
     text-transform: uppercase;
     font-family: 'proxima-nova', sans-serif;
   }
-  
+
   nav .logo img {
     width: 100%;
   }
-  
+
   nav ul {
     display: inline-block;
     list-style: none;
@@ -682,7 +681,7 @@ nav li {
     right: 5%;
     margin: 0;
   }
-  
+
   nav li {
     display: inline-block;
     margin-left: 20px;
@@ -691,7 +690,7 @@ nav li {
     text-transform: uppercase;
     font-family: 'proxima-nova', sans-serif;
   }
-  
+
   /* Landing/Login/Signup */
   .top-joke {
     width: 50%;
@@ -701,14 +700,14 @@ nav li {
     background-color: #f0f0f0;
     min-height: 120px;
   }
-  
+
   .demo p {
     font-size: 18px;
-    color: #22252C;
+    color: #22252c;
     margin: 0 auto;
     font-weight: 400;
   }
-  
+
   .login-container {
     width: 60%;
     margin: 50px auto;
@@ -717,29 +716,29 @@ nav li {
     font-family: 'proxima-nova', sans-serif;
     font-weight: 300;
   }
-  
+
   .login {
     margin: 0px auto 20px auto;
   }
-  
+
   .login-logo {
     width: 40%;
     margin: 0 auto;
   }
-  
+
   .login-logo img {
     width: 100%;
   }
-  
+
   .login h3 {
     margin: 10px auto;
   }
-  
+
   .login a {
     text-decoration: underline;
     font-weight: bold;
   }
-  
+
   .signup-form input {
     display: block;
     appearance: none;
@@ -753,19 +752,19 @@ nav li {
     display: block;
     text-align: center;
     font-size: 18px;
-    transition-duration: 0.25s;
+    transition: color 0.15s ease-in-out;
     font-weight: 300;
   }
-  
+
   .signup-form input:hover {
     background-color: #f0f0f0;
   }
-  
+
   .signup-form input:focus {
     background-color: #f0f0f0;
     color: #000000;
   }
-  
+
   .signup-form button {
     background-color: #0e60fb;
     padding: 10px 15px;
@@ -774,19 +773,19 @@ nav li {
     width: 300px;
     cursor: pointer;
     font-size: 18px;
-    transition-duration: 0.25;
+    transition: color 0.15s ease-in-out;
     margin-bottom: 10px;
   }
-  
+
   .signup-form button:hover {
-    background-color: #0B48BA;
+    background-color: #0b48ba;
   }
-  
+
   .signup-form button:disabled {
     background-color: #cbcbcb;
     cursor: not-allowed;
   }
-  
+
   .login-btn {
     padding: 10px 20px;
     margin: 5px;
@@ -796,22 +795,22 @@ nav li {
     border-color: transparent;
     border-radius: 5px;
     font-size: 18px;
-    transition-duration: 0.25;
+    transition: color 0.15s ease-in-out;
   }
-  
+
   .login-btn:hover {
     color: #ffffff;
-    background-color: #0B48BA;
+    background-color: #0b48ba;
   }
-  
+
   /* Joke Lists */
-  
+
   .joke-list {
     width: 80%;
     margin: 0px auto;
     padding: 0;
   }
-  
+
   .joke-card {
     width: 100%;
     margin: 2% auto;
@@ -821,29 +820,29 @@ nav li {
     text-align: left;
     padding: 10px;
   }
-  
+
   .joke-card-title {
     width: 100%;
   }
-  
+
   .joke-card-title h4 {
     margin: 0px;
   }
-  
+
   .joke-card-info {
     width: 100%;
   }
-  
+
   .joke-card-vote {
     width: 100%;
     font-size: 14px;
   }
-  
+
   .joke-card-vote p {
     font-size: 14px;
     margin: 5px;
   }
-  
+
   .joke-card button {
     display: inline-block;
     width: 150px;
@@ -855,15 +854,15 @@ nav li {
     border-color: transparent;
     border-radius: 5px;
     font-size: 18px;
-    transition-duration: 0.25;
+    transition: color 0.15s ease-in-out;
   }
-  
+
   .joke-card button:hover {
     color: #ffffff;
-    background-color: #0B48BA;
+    background-color: #0b48ba;
   }
-  
-  /* Add Joke */  
+
+  /* Add Joke */
   .joke-card-lg {
     display: block;
     width: 70%;
@@ -875,8 +874,9 @@ nav li {
     padding: 10px 5px;
     text-align: center;
   }
-  
-  .new-joke-form input, .new-joke-form select {
+
+  .new-joke-form input,
+  .new-joke-form select {
     display: block;
     appearance: none;
     outline: 0;
@@ -889,19 +889,19 @@ nav li {
     display: block;
     text-align: center;
     font-size: 18px;
-    transition-duration: 0.25s;
+    transition: color 0.15s ease-in-out;
     font-weight: 300;
   }
-  
+
   .new-joke-form input:hover {
     background-color: #ffffff;
   }
-  
+
   .new-joke-form input:focus {
     background-color: #ffffff;
     color: #000000;
   }
-  
+
   .joke-card-info button {
     background-color: #0e60fb;
     padding: 10px 15px;
@@ -910,14 +910,14 @@ nav li {
     width: 250px;
     cursor: pointer;
     font-size: 18px;
-    transition-duration: 0.25;
+    transition: color 0.15s ease-in-out;
     margin-top: 10px;
   }
-  
+
   .joke-card-info button:hover {
-    background-color: #0B48BA;
+    background-color: #0b48ba;
   }
-  
+
   .joke-card-info button:disabled {
     color: #acacac;
     background-color: #c2c2c2;
@@ -926,23 +926,22 @@ nav li {
 }
 /* Start iPad lanscape / small laptop 1024px */
 
-
 /* Start large desktop 1600px */
-@media only screen and (min-width: 1600px) {  
+@media only screen and (min-width: 1600px) {
   /* Navigation */
   nav {
     padding: 12px 10% 8px 10%;
   }
-  
+
   nav ul {
     right: 10%;
   }
-  
+
   /* Landing/Login/Signup */
   .top-joke {
     max-width: 1000px;
   }
-  
+
   /* Joke Lists */
   .joke-list {
     width: 60%;
@@ -950,8 +949,8 @@ nav li {
     margin: 0px auto;
     padding: 0;
   }
-  
-  /* Add Joke */  
+
+  /* Add Joke */
   .joke-card-lg {
     max-width: 1000px;
   }

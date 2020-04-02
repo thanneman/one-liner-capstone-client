@@ -17,65 +17,63 @@ export default class App extends Component {
     userJokes: [],
     upvoteDisabled: [],
     downvoteDisabled: [],
-    error: null,
+    error: null
   }
-    
+
   // Helper function to fecth/update state after upvote/downvote
-  updateJokes () {
+  updateJokes() {
     setTimeout(() => {
-        JokeApiService.getAllJokes()
+      JokeApiService.getAllJokes()
         .then(resJson =>
-            this.setState({
-                jokes: resJson
-            }))
-            .catch(res => {
-                this.setState({ error: res.error })
-            })
-    }, 1000);
+          this.setState({
+            jokes: resJson
+          })
+        )
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }, 1000)
     setTimeout(() => {
       JokeApiService.getUserJokes()
-      .then(resJson =>
+        .then(resJson =>
           this.setState({
             userJokes: resJson
-          }))
-          .catch(res => {
-              this.setState({ error: res.error })
           })
-    }, 1000);
+        )
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
+    }, 1000)
   }
 
   deleteJoke = jokeId => {
-    const newUserJokes = this.state.userJokes.filter(rec => 
-        rec.id !== jokeId
-    )
+    const newUserJokes = this.state.userJokes.filter(rec => rec.id !== jokeId)
     this.setState({
-        userJokes: newUserJokes,
+      userJokes: newUserJokes
     })
-    const newJokes = this.state.jokes.filter(rec => 
-      rec.id !== jokeId
-    )
+    const newJokes = this.state.jokes.filter(rec => rec.id !== jokeId)
     this.setState({
-        jokes: newJokes,
+      jokes: newJokes
     })
   }
 
-  // Fetches jokes and updates state when the component mounts
+  // Fetches ALL jokes and updates state when the component mounts (user jokes fetch is on Dashboard with setUserJokes helper function below)
   componentDidMount() {
-      JokeApiService.getAllJokes()
-          .then(resJson =>
-              this.setState({ jokes: resJson }))
-              .catch(res => {
-                  this.setState({ error: res.error })
-              })
+    JokeApiService.getAllJokes()
+      .then(resJson => this.setState({ jokes: resJson }))
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
   }
 
   //Handles upvote on joke
   handleUpvote = e => {
-      e.preventDefault()
-      const { id } = e.target
-      const jokeId = Number(id)
-      JokeApiService.upvoteJoke(jokeId, this.updateJokes())
-      this.setState({upvoteDisabled: [...this.state.upvoteDisabled, jokeId]})
+    e.preventDefault()
+    const { id } = e.target
+    const jokeId = Number(id)
+    JokeApiService.upvoteJoke(jokeId)
+    JokeApiService.postUserUpvote(jokeId, this.updateJokes())
+    //this.setState({ upvoteDisabled: [...this.state.upvoteDisabled, jokeId] })
   }
 
   //Handles downvote on joke
@@ -84,7 +82,7 @@ export default class App extends Component {
     const { id } = e.target
     const jokeId = Number(id)
     JokeApiService.downvoteJoke(jokeId, this.updateJokes())
-    this.setState({downvoteDisabled: [...this.state.downvoteDisabled, jokeId]})
+    //this.setState({ downvoteDisabled: [...this.state.downvoteDisabled, jokeId] })
   }
 
   // Handles delete for logged in user
@@ -95,15 +93,19 @@ export default class App extends Component {
     JokeApiService.deleteJoke(jokeId, this.deleteJoke(jokeId))
   }
 
+  // Sets jokes and upvotes for logged in user (called from Dashboard)
   setUserJokes = e => {
     JokeApiService.getUserJokes()
-          .then(resJson =>
-              this.setState({ userJokes: resJson }))
-              .catch(res => {
-                  this.setState({ error: res.error })
-              })
+      .then(resJson => this.setState({ userJokes: resJson }))
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
+    JokeApiService.getUserUpvotes()
+      .then(resJson => this.setState({ upvoteDisabled: resJson }))
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
   }
-
 
   render() {
     const contextValue = {
@@ -116,23 +118,21 @@ export default class App extends Component {
       updateJokes: this.updateJokes,
       deleteJoke: this.deleteJoke,
       handleDelete: this.handleDelete,
-      setUserJokes: this.setUserJokes,
+      setUserJokes: this.setUserJokes
     }
     return (
-      <div className="App">
-          <Switch>
-            <Route exact path={'/'} component={Landing} />
-            <Route path={'/login'} component={Login} />
-            <Route path={'/signup'} component={Signup} />
-            <MainContext.Provider value={contextValue}>
-              <PrivateRoute path={'/dashboard'} component={Dashboard} />
-              <PrivateRoute path={'/newjoke'} component={NewJoke} />
-              <PrivateRoute path={'/myjokes'} component={UserJokes} />
-            </MainContext.Provider>
-          </Switch>
+      <div className='App'>
+        <Switch>
+          <Route exact path={'/'} component={Landing} />
+          <Route path={'/login'} component={Login} />
+          <Route path={'/signup'} component={Signup} />
+          <MainContext.Provider value={contextValue}>
+            <PrivateRoute path={'/dashboard'} component={Dashboard} />
+            <PrivateRoute path={'/newjoke'} component={NewJoke} />
+            <PrivateRoute path={'/myjokes'} component={UserJokes} />
+          </MainContext.Provider>
+        </Switch>
       </div>
     )
   }
-
-
 }
