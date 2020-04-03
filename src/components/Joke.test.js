@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <Joke />
+      <Joke upvoted={[{ joke_id: 41 }]} downvoted={[{ joke_id: 41 }]} />
     </BrowserRouter>,
     div
   );

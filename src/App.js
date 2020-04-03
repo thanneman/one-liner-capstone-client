@@ -17,70 +17,73 @@ export default class App extends Component {
     userJokes: [],
     upvoteDisabled: [],
     downvoteDisabled: [],
-    error: null
+    error: null,
   };
 
   // Helper function to fecth/update state after upvote/downvote
   updateJokes() {
     setTimeout(() => {
       JokeApiService.getAllJokes()
-        .then(resJson => this.setState({
-          jokes: resJson
-        })
+        .then((resJson) =>
+          this.setState({
+            jokes: resJson,
+          })
         )
-        .catch(res => {
+        .catch((res) => {
           this.setState({ error: res.error });
         });
     }, 1000);
     setTimeout(() => {
       JokeApiService.getUserJokes()
-        .then(resJson =>
+        .then((resJson) =>
           this.setState({
-            userJokes: resJson
+            userJokes: resJson,
           })
         )
-        .catch(res => {
+        .catch((res) => {
           this.setState({ error: res.error });
         });
     }, 1000);
     setTimeout(() => {
       JokeApiService.getUserUpvotes()
-        .then(resJson => this.setState({ upvoteDisabled: resJson }))
-        .catch(res => {
+        .then((resJson) => this.setState({ upvoteDisabled: resJson }))
+        .catch((res) => {
           this.setState({ error: res.error });
         });
-    }, 500);
+    }, 200);
     setTimeout(() => {
       JokeApiService.getUserDownvotes()
-        .then(resJson => this.setState({ downvoteDisabled: resJson }))
-        .catch(res => {
+        .then((resJson) => this.setState({ downvoteDisabled: resJson }))
+        .catch((res) => {
           this.setState({ error: res.error });
         });
-    }, 500);
+    }, 200);
   }
 
-  deleteJoke = jokeId => {
-    const newUserJokes = this.state.userJokes.filter(rec => rec.id !== jokeId);
+  deleteJoke = (jokeId) => {
+    const newUserJokes = this.state.userJokes.filter(
+      (rec) => rec.id !== jokeId
+    );
     this.setState({
-      userJokes: newUserJokes
+      userJokes: newUserJokes,
     });
-    const newJokes = this.state.jokes.filter(rec => rec.id !== jokeId);
+    const newJokes = this.state.jokes.filter((rec) => rec.id !== jokeId);
     this.setState({
-      jokes: newJokes
+      jokes: newJokes,
     });
   };
 
   // Fetches ALL jokes and updates state when the component mounts (user jokes fetch is on Dashboard with setUserJokes helper function below)
   componentDidMount() {
     JokeApiService.getAllJokes()
-      .then(resJson => this.setState({ jokes: resJson }))
-      .catch(res => {
+      .then((resJson) => this.setState({ jokes: resJson }))
+      .catch((res) => {
         this.setState({ error: res.error });
       });
   }
 
   //Handles upvote on joke
-  handleUpvote = e => {
+  handleUpvote = (e) => {
     e.preventDefault();
     const { id } = e.target;
     const jokeId = Number(id);
@@ -90,7 +93,7 @@ export default class App extends Component {
   };
 
   //Handles downvote on joke
-  handleDownvote = e => {
+  handleDownvote = (e) => {
     e.preventDefault();
     const { id } = e.target;
     const jokeId = Number(id);
@@ -100,7 +103,7 @@ export default class App extends Component {
   };
 
   // Handles delete for logged in user
-  handleDelete = e => {
+  handleDelete = (e) => {
     e.preventDefault();
     const { id } = e.target;
     const jokeId = Number(id);
@@ -108,20 +111,20 @@ export default class App extends Component {
   };
 
   // Sets jokes and upvotes for logged in user (called from Dashboard)
-  setUserJokes = e => {
+  setUserJokes = (e) => {
     JokeApiService.getUserJokes()
-      .then(resJson => this.setState({ userJokes: resJson }))
-      .catch(res => {
+      .then((resJson) => this.setState({ userJokes: resJson }))
+      .catch((res) => {
         this.setState({ error: res.error });
       });
     JokeApiService.getUserUpvotes()
-      .then(resJson => this.setState({ upvoteDisabled: resJson }))
-      .catch(res => {
+      .then((resJson) => this.setState({ upvoteDisabled: resJson }))
+      .catch((res) => {
         this.setState({ error: res.error });
       });
     JokeApiService.getUserDownvotes()
-      .then(resJson => this.setState({ downvoteDisabled: resJson }))
-      .catch(res => {
+      .then((resJson) => this.setState({ downvoteDisabled: resJson }))
+      .catch((res) => {
         this.setState({ error: res.error });
       });
   };
@@ -137,7 +140,7 @@ export default class App extends Component {
       updateJokes: this.updateJokes,
       deleteJoke: this.deleteJoke,
       handleDelete: this.handleDelete,
-      setUserJokes: this.setUserJokes
+      setUserJokes: this.setUserJokes,
     };
     return (
       <div className='App'>

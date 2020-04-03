@@ -7,12 +7,13 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 export default function Joke(props) {
   const userUpvotes = props.upvoted;
   const userDownvotes = props.downvoted;
-  const userHasUpvoted = userUpvotes.map(a => a.joke_id);
-  const userHasDownvoted = userDownvotes.map(a => a.joke_id);
+  const userHasUpvoted = userUpvotes.map((a) => a.joke_id);
+  const userHasDownvoted = userDownvotes.map((a) => a.joke_id);
+
   return (
     <>
       <MainContext.Consumer>
-        {context => (
+        {(context) => (
           <div className='joke-card' id={props.id}>
             <div className='joke-card-title'>
               <div className='joke-card-vote'>

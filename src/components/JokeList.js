@@ -1,20 +1,23 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-import MainContext from '../MainContext'
-import Joke from '../components/Joke'
-import ValidationError from './validation-error'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import MainContext from '../MainContext';
+import Joke from '../components/Joke';
+import ValidationError from './validation-error';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default class JokeList extends Component {
   static defaultProps = {
-    error: null
-  }
+    jokes: [],
+    upvoteDisabled: [],
+    downvoteDisabled: [],
+    error: null,
+  };
 
-  static contextType = MainContext
+  static contextType = MainContext;
 
   render() {
-    const { jokes, upvoteDisabled, downvoteDisabled, error } = this.context
+    const { jokes, upvoteDisabled, downvoteDisabled, error } = this.context;
     return (
       <section className='joke-list'>
         <h3>All Jokes</h3>
@@ -27,10 +30,15 @@ export default class JokeList extends Component {
             </NavLink>
           </div>
         )}
-        {jokes.map(joke => (
-          <Joke key={joke.id} {...joke} upvoted={upvoteDisabled} downvoted={downvoteDisabled} />
+        {jokes.map((joke) => (
+          <Joke
+            key={joke.id}
+            {...joke}
+            upvoted={upvoteDisabled}
+            downvoted={downvoteDisabled}
+          />
         ))}
       </section>
-    )
+    );
   }
 }
