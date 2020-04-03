@@ -1,10 +1,14 @@
-import React from 'react'
-import MainContext from '../MainContext'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import MainContext from '../MainContext';
+import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Joke(props) {
+  const userUpvotes = props.upvoted;
+  const userDownvotes = props.downvoted;
+  const userHasUpvoted = userUpvotes.map(a => a.joke_id);
+  const userHasDownvoted = userDownvotes.map(a => a.joke_id);
   return (
     <>
       <MainContext.Consumer>
@@ -23,14 +27,14 @@ export default function Joke(props) {
               <button
                 id={props.id}
                 type='submit'
-                disabled={context.upvoteDisabled.joke_id === props.id}
+                disabled={userHasUpvoted.indexOf(props.id) !== -1}
                 onClick={context.handleUpvote}>
                 Upvote <FontAwesomeIcon icon={faArrowUp} size='1x' />
               </button>
               <button
                 id={props.id}
                 type='submit'
-                disabled={context.downvoteDisabled.indexOf(props.id) !== -1}
+                disabled={userHasDownvoted.indexOf(props.id) !== -1}
                 onClick={context.handleDownvote}>
                 Downvote <FontAwesomeIcon icon={faArrowDown} size='1x' />
               </button>
@@ -39,5 +43,5 @@ export default function Joke(props) {
         )}
       </MainContext.Consumer>
     </>
-  )
+  );
 }

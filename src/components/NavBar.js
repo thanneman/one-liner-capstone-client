@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-import TokenService from '../services/token-service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import TokenService from '../services/token-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlusCircle,
   faSignOutAlt,
   faListAlt
-} from '@fortawesome/free-solid-svg-icons'
-import { faLaughBeam } from '@fortawesome/free-regular-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
+import { faLaughBeam } from '@fortawesome/free-regular-svg-icons';
 
 export default class NavBar extends Component {
   // Handles user logout
   handleLogout = () => {
-    TokenService.clearAuthToken()
-    window.location = '/'
-  }
+    TokenService.clearAuthToken();
+    window.location = '/';
+  };
 
   render() {
-    const location = window.location.pathname
-    let onMyJoke
-    let notOnMyJokes
+    const location = window.location.pathname;
+    let onMyJoke;
+    let notOnMyJokes;
     if (location === '/myjokes' || location === '/newjoke') {
       onMyJoke = (
         <li>
@@ -27,7 +27,7 @@ export default class NavBar extends Component {
             <FontAwesomeIcon icon={faListAlt} size='lg' /> All Jokes
           </NavLink>
         </li>
-      )
+      );
     } else {
       notOnMyJokes = (
         <li>
@@ -35,7 +35,7 @@ export default class NavBar extends Component {
             <FontAwesomeIcon icon={faListAlt} size='lg' /> My Jokes
           </NavLink>
         </li>
-      )
+      );
     }
     return (
       <nav role='navigation'>
@@ -59,6 +59,6 @@ export default class NavBar extends Component {
           </li>
         </ul>
       </nav>
-    )
+    );
   }
 }

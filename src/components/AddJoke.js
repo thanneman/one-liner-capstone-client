@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import JokeApiService from '../services/joke-api-service'
-import ValidationError from './validation-error'
-import MainContext from '../MainContext'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from 'react';
+import JokeApiService from '../services/joke-api-service';
+import ValidationError from './validation-error';
+import MainContext from '../MainContext';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default class AddJoke extends Component {
   static defaultProps = {
     history: {
       push: () => {}
     }
-  }
+  };
 
-  static contextType = MainContext
+  static contextType = MainContext;
 
   // Create initial state before fetching data
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       question: {
         value: '',
@@ -28,29 +28,29 @@ export default class AddJoke extends Component {
         value: '',
         touched: false
       }
-    }
+    };
   }
 
   // Update question state if input updated
   updateQuestion(question) {
-    this.setState({ question: { value: question, touched: true } })
+    this.setState({ question: { value: question, touched: true } });
   }
 
   // Update answer state if input updated
   updateAnswer(answer) {
-    this.setState({ answer: { value: answer, touched: true } })
+    this.setState({ answer: { value: answer, touched: true } });
   }
 
   // Handle submit to POST new joke for logged in user
   handleSubmit = e => {
-    e.preventDefault()
-    this.setState({ error: null })
-    const { question, answer, rating } = e.target
+    e.preventDefault();
+    this.setState({ error: null });
+    const { question, answer, rating } = e.target;
     const newJoke = {
       question: question.value,
       answer: answer.value,
       rating: rating.value
-    }
+    };
     JokeApiService.postUserJoke(
       newJoke.id,
       newJoke.question,
@@ -58,28 +58,28 @@ export default class AddJoke extends Component {
       newJoke.rating
     )
       .then(() => {
-        window.location = '/dashboard'
+        window.location = '/dashboard';
       })
-      .catch(this.state.error)
-  }
+      .catch(this.state.error);
+  };
 
   // Validates that a question has been entered
   validateQuestion() {
-    const question = this.state.question.value.trim()
+    const question = this.state.question.value.trim();
     if (question.length === 0) {
-      return 'Please enter your joke'
+      return 'Please enter your joke';
     } else if (question.length > 350) {
-      return 'Must be under 350 characters'
+      return 'Must be under 350 characters';
     }
   }
 
   // Validates that an answer has been entered
   validateAnswer() {
-    const answer = this.state.answer.value.trim()
+    const answer = this.state.answer.value.trim();
     if (answer.length === 0) {
-      return 'Please enter an answer to your joke'
+      return 'Please enter an answer to your joke';
     } else if (answer.length > 350) {
-      return 'Must be under 350 characters'
+      return 'Must be under 350 characters';
     }
   }
 
@@ -136,6 +136,6 @@ export default class AddJoke extends Component {
           </div>
         </div>
       </section>
-    )
+    );
   }
 }

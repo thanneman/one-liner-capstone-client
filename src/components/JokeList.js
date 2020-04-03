@@ -14,7 +14,7 @@ export default class JokeList extends Component {
   static contextType = MainContext
 
   render() {
-    const { jokes, upvoteDisabled, error } = this.context
+    const { jokes, upvoteDisabled, downvoteDisabled, error } = this.context
     return (
       <section className='joke-list'>
         <h3>All Jokes</h3>
@@ -28,7 +28,7 @@ export default class JokeList extends Component {
           </div>
         )}
         {jokes.map(joke => (
-          <Joke key={joke.id} {...joke} />
+          <Joke key={joke.id} {...joke} upvoted={upvoteDisabled} downvoted={downvoteDisabled} />
         ))}
       </section>
     )

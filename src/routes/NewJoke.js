@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
-import AddJoke from '../components/AddJoke'
+import React, { Component } from 'react';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import AddJoke from '../components/AddJoke';
 
 export default class NewJoke extends Component {
   render() {
@@ -13,6 +13,6 @@ export default class NewJoke extends Component {
         </main>
         <Footer />
       </>
-    )
+    );
   }
 }

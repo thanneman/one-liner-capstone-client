@@ -1,10 +1,10 @@
-import React from 'react'
-import MainContext from '../MainContext'
-import { NavLink } from 'react-router-dom'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import MainContext from '../MainContext';
+import { NavLink } from 'react-router-dom';
+import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default function UserJoke(props) {
   // If the user has no jokes display a prompt to add a joke
@@ -16,7 +16,7 @@ export default function UserJoke(props) {
           <FontAwesomeIcon icon={faPlusCircle} size='lg' /> Add a Joke
         </NavLink>
       </div>
-    )
+    );
   }
 
   return (
@@ -27,7 +27,7 @@ export default function UserJoke(props) {
             <div className='joke-card-title'>
               <div className='joke-card-vote'>
                 <p>
-                  Posted on {moment(props.date).format('MM/D/YY')} |{' '}
+                  Posted by: you on {moment(props.date).format('MM/D/YY')} |{' '}
                   <span className='detail-label'>Votes: {props.rating}</span>
                 </p>
               </div>
@@ -44,5 +44,5 @@ export default function UserJoke(props) {
         )}
       </MainContext.Consumer>
     </>
-  )
+  );
 }

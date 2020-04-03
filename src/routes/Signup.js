@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import ValidationError from '../components/validation-error'
-import AuthApiService from '../services/auth-api-service'
-import TokenService from '../services/token-service'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import ValidationError from '../components/validation-error';
+import AuthApiService from '../services/auth-api-service';
+import TokenService from '../services/token-service';
+import { Link } from 'react-router-dom';
 
 export default class Signup extends Component {
   static defaultProps = {
     history: {
       push: () => {}
     }
-  }
+  };
 
   // Create initial state before data input
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: {
         value: '',
@@ -31,94 +31,94 @@ export default class Signup extends Component {
         value: '',
         touched: false
       }
-    }
+    };
   }
 
   // Update state if input updated
   updateEmail(email) {
-    this.setState({ email: { value: email, touched: true } })
+    this.setState({ email: { value: email, touched: true } });
   }
 
   updateUsername(username) {
-    this.setState({ username: { value: username, touched: true } })
+    this.setState({ username: { value: username, touched: true } });
   }
 
   updatePassword(password) {
-    this.setState({ password: { value: password, touched: true } })
+    this.setState({ password: { value: password, touched: true } });
   }
 
   updateRepeatPassword(repeatPassword) {
-    this.setState({ repeatPassword: { value: repeatPassword, touched: true } })
+    this.setState({ repeatPassword: { value: repeatPassword, touched: true } });
   }
 
   handleLoginSuccess = () => {
-    window.location = '/dashboard'
-  }
+    window.location = '/dashboard';
+  };
 
   // When submitted check validation and create tokens
   handleSubmitBasicAuth = ev => {
-    ev.preventDefault()
-    const { email, username, password, repeatPassword } = ev.target
-    this.setState({ error: null })
+    ev.preventDefault();
+    const { email, username, password, repeatPassword } = ev.target;
+    this.setState({ error: null });
     AuthApiService.postUser({
       email: email.value,
       username: username.value,
       password: password.value
     })
       .then(user => {
-        email.value = ''
-        username.value = ''
-        password.value = ''
-        repeatPassword.value = ''
-        TokenService.saveAuthToken(user.authToken)
-        TokenService.saveUserId(user.userId)
-        alert('User created')
-        window.location = '/login'
+        email.value = '';
+        username.value = '';
+        password.value = '';
+        repeatPassword.value = '';
+        TokenService.saveAuthToken(user.authToken);
+        TokenService.saveUserId(user.userId);
+        alert('User created');
+        window.location = '/login';
       })
       .then()
       .catch(res => {
-        this.setState({ error: res.error })
-      })
-  }
+        this.setState({ error: res.error });
+      });
+  };
 
   // Validate inputs
 
   validateEmail() {
-    const email = this.state.email.value.trim()
+    const email = this.state.email.value.trim();
     if (email.length === 0) {
-      return 'Email is required'
+      return 'Email is required';
     } else if (email.length < 5) {
-      return 'Email must be at least 5 characters'
+      return 'Email must be at least 5 characters';
     } else if (!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-      return 'Must be a valid email'
+      return 'Must be a valid email';
     }
   }
 
   validateUsername() {
-    const username = this.state.username.value.trim()
+    const username = this.state.username.value.trim();
     if (username.length === 0) {
-      return 'Username is required'
+      return 'Username is required';
     } else if (username.length < 4) {
-      return 'Username must be at least 4 characters'
+      return 'Username must be at least 4 characters';
     }
   }
 
   validatePassword() {
-    const password = this.state.password.value.trim()
+    const password = this.state.password.value.trim();
     if (password.length === 0) {
-      return 'Password is required'
+      return 'Password is required';
     } else if (password.length < 6 || password.length > 20) {
-      return 'Password must be between 6 and 20 characters'
+      return 'Password must be between 6 and 20 characters';
     } else if (!password.match(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[\S]+/)) {
-      return 'Password must contain 1 upper case, lower case, and a number'
+      return 'Password must contain 1 upper case, lower case, and a number';
     }
   }
 
   validateRepeatPassword() {
-    const repeatPassword = this.state.repeatPassword.value.trim()
-    const password = this.state.password.value.trim()
+    const repeatPassword = this.state.repeatPassword.value.trim();
+    const password = this.state.password.value.trim();
     if (repeatPassword !== password) {
-      return 'Passwords do not match'
+      return 'Passwords do not match';
     }
   }
 
@@ -205,6 +205,6 @@ export default class Signup extends Component {
           </div>
         </main>
       </>
-    )
+    );
   }
 }

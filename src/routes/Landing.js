@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import MainContext from '../MainContext'
-import LoadingSpinner from '../components/LoadingSpinner'
-import JokeApiService from '../services/joke-api-service'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLaughBeam } from '@fortawesome/free-regular-svg-icons'
-import Footer from '../components/Footer'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import MainContext from '../MainContext';
+import LoadingSpinner from '../components/LoadingSpinner';
+import JokeApiService from '../services/joke-api-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLaughBeam } from '@fortawesome/free-regular-svg-icons';
+import Footer from '../components/Footer';
 
 export default class Landing extends Component {
-  static contextType = MainContext
+  static contextType = MainContext;
   // Set initial state for user before fetch
   state = {
     loading: false,
     joke: [],
     error: null
-  }
+  };
 
   // Fetches jokes and updates state when the component mounts
   componentDidMount() {
-    this.setState({ loading: true })
+    this.setState({ loading: true });
     JokeApiService.getAllJokes()
       .then(resJson =>
         this.setState({
@@ -27,17 +27,17 @@ export default class Landing extends Component {
         })
       )
       .catch(res => {
-        this.setState({ error: res.error })
-      })
+        this.setState({ error: res.error });
+      });
   }
 
   render() {
     // Display loader if the request is taking too long
-    const { loading } = this.state
-    let loadedJoke
-    let loader
+    const { loading } = this.state;
+    let loadedJoke;
+    let loader;
     if (loading === true) {
-      loader = <LoadingSpinner />
+      loader = <LoadingSpinner />;
     } else {
       loadedJoke = (
         <>
@@ -52,7 +52,7 @@ export default class Landing extends Component {
           </h4>
           <p>Posted by: {this.state.joke.username}</p>
         </>
-      )
+      );
     }
     return (
       <>
@@ -84,6 +84,6 @@ export default class Landing extends Component {
         </main>
         <Footer />
       </>
-    )
+    );
   }
 }

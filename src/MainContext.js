@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const MainContext = React.createContext({
   jokes: [],
@@ -12,6 +12,6 @@ const MainContext = React.createContext({
   handleDelete: () => {},
   setUserJokes: () => {},
   handleLogout: () => {}
-})
+});
 
-export default MainContext
+export default MainContext;
